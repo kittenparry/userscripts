@@ -2,7 +2,7 @@
 // @name         Instagram Image Viewer
 // @namespace    https://github.com/kittenparry/
 // @version      0.1
-// @description  Get full image on button click or 'd' key (need to be in the page of image and not that fancy foreground thingy)
+// @description  View the full image with the click of a button (or D key press).
 // @author       kittenparry
 // @match        https://www.instagram.com/p/*
 // @grant        none
@@ -13,7 +13,7 @@ window.addEventListener('keydown', (e) => {
 	var tag = e.target.tagName.toLowerCase();
 	if(type != 'text' && tag != 'textarea'){
 		switch(e.keyCode){
-			case 68: //D key
+			case 68:
 				window.location = document.querySelector('meta[property="og:image"]').getAttribute('content');
 				break;
 			default:

@@ -2,7 +2,7 @@
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
 // @version      0.1
-// @description  Use 'n' key for next, 'b' key for previous page
+// @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
 // @grant        none
