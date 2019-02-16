@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Instagram Download Button
+// @name         Instagram Image Viewer
 // @namespace    https://github.com/kittenparry/
 // @version      0.1
 // @description  Get full image on button click or 'd' key (need to be in the page of image and not that fancy foreground thingy)
