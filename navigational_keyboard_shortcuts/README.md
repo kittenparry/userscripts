@@ -4,9 +4,9 @@
 `b` for previous page
 
 * rarbg.com
-*	reddit.com
-*	steamgifts.com
-*	tumblr.com
+* reddit.com
+* steamgifts.com
+* tumblr.com
 
 ### NSFW
 * hentai-foundry.com
