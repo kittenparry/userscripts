@@ -13,6 +13,7 @@
 * coedcherry.com
 * f95zone.com
 * hentai-foundry.com
+* hongfire.com
 * nhentai.net
 * pornbay.org
 * sinnercomics.com
