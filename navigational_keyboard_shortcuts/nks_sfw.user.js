@@ -17,6 +17,12 @@
  * tumblr.com
  */
 
+/* CHANGELOG:
+ * 1.1.1.sfw: prevent execution of code when not on these sites
+ * 1.1: +nyaa.si
+ * 1.0: initial
+ */
+
 check_nav_key_press = (e, prev, next, special = false) => {
 	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();

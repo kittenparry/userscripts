@@ -25,6 +25,14 @@
  * sinnercomics.com
  */
 
+/* CHANGELOG:
+ * 1.2.2: +hongfire.com
+ * 1.2.1: prevent execution of code when not on these sites
+ * 1.2: +f95zone.com
+ * 1.1: +nyaa.si +coedcherry.com
+ * 1.0: initial
+ */
+
 check_nav_key_press = (e, prev, next, special = false) => {
 	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();
