@@ -1,7 +1,11 @@
 ### Userscript for navigational keyboard shortcuts on the named sites
-`n` for next page
+`n` for next page, `b` for previous page.
 
-`b` for previous page
+[On Greasy Fork](https://greasyfork.org/en/scripts/377854-navigational-keyboard-shortcuts)!
+
+SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigational-keyboard-shortcuts-sfw).
+
+## URL List
 
 * nyaa.si
 * rarbg.com
