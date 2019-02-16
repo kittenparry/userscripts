@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.0
+// @version      1.1
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -10,10 +10,11 @@
 // ==/UserScript==
 
 /* LIST:
- *	 rarbg.com
- *	 reddit.com
- *	 steamgifts.com
- *	 tumblr.com
+ * nyaa.si	
+ * rarbg.com
+ * reddit.com
+ * steamgifts.com
+ * tumblr.com
  */
 
 check_nav_key_press = (e, prev, next, special = false) => {
@@ -51,10 +52,13 @@ check_nav_key_press = (e, prev, next, special = false) => {
 
 var cur_loc = window.location.href;
 
-if(cur_loc.includes('rarbg.to')){
+if(cur_loc.includes('nyaa.si')){
+	var pqsel = 'a[rel="prev"]';
+	var nqsel = 'a[rel="next"]';
+}else if(cur_loc.includes('rarbg.to')){
 	var pqsel = 'a[title="previous page"]';
-	var nqsel = 'a[title="next page"]'}
-else if(cur_loc.includes('reddit.com')){
+	var nqsel = 'a[title="next page"]'
+}else if(cur_loc.includes('reddit.com')){
 	var pqsel = 'a[rel="nofollow prev"]';
 	var nqsel = 'a[rel="nofollow next"]';
 }else if(cur_loc.includes('steamgifts.com')){
