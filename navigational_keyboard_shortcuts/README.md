@@ -11,6 +11,7 @@
 
 ### NSFW
 * coedcherry.com
+* f95zone.com
 * hentai-foundry.com
 * nhentai.net
 * pornbay.org
