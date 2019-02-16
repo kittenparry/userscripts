@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.1
+// @version      1.1.1.sfw
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -74,10 +74,12 @@ if(cur_loc.includes('nyaa.si')){
 	var nqsel = 'a[id="next_page_link"]';
 }
 
-try{
-	if(nav_spcl){
-		window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel, nav_spcl), false);
-	}else{
-		window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel), false);
-	}
-}catch(e){}
+if(pqsel != undefined || nqsel != undefined){
+	try{
+		if(nav_spcl){
+			window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel, nav_spcl), false);
+		}else{
+			window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel), false);
+		}
+	}catch(e){}
+}
