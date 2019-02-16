@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      0.1
+// @version      1.0
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
 // @grant        none
+// @license      MIT License
 // ==/UserScript==
 
 /* LIST:

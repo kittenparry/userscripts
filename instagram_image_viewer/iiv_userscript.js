@@ -6,6 +6,7 @@
 // @author       kittenparry
 // @match        https://www.instagram.com/p/*
 // @grant        none
+// @license      MIT License
 // ==/UserScript==
 
 window.addEventListener('keydown', (e) => {
