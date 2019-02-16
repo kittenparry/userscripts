@@ -3,12 +3,14 @@
 
 `b` for previous page
 
+* nyaa.si
 * rarbg.com
 * reddit.com
 * steamgifts.com
 * tumblr.com
 
 ### NSFW
+* coedcherry.com
 * hentai-foundry.com
 * nhentai.net
 * pornbay.org
