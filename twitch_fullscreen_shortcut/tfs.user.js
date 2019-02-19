@@ -9,7 +9,7 @@
 // @license      MIT License
 // ==/UserScript==
 
-check_key_press = (e) => {
+check_twitch_key_press = (e) => {
 	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();
 	if(type != 'text' && tag != 'textarea' && type != 'search'){
@@ -21,4 +21,4 @@ check_key_press = (e) => {
 		}
 	}
 };
-window.addEventListener('keydown', (e) => check_key_press(e), false);
+window.addEventListener('keydown', (e) => check_twitch_key_press(e), false);
