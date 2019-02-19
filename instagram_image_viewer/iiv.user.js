@@ -10,7 +10,7 @@
 // ==/UserScript==
 
 window.addEventListener('keydown', (e) => {
-  var type = e.target.getAttribute('type');
+	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();
 	if(type != 'text' && tag != 'textarea'){
 		switch(e.keyCode){
