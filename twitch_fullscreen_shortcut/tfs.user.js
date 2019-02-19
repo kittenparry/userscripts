@@ -14,9 +14,9 @@ check_twitch_key_press = (e) => {
 	var tag = e.target.tagName.toLowerCase();
 	if(type != 'text' && tag != 'textarea' && type != 'search'){
 		switch(e.keyCode){
-      case 70:
-        document.querySelector('button[class="player-button qa-fullscreen-button pl-mg-r-1 pl-button__fullscreen--tooltip-left"]').click();
-				break;
+			case 70:
+				document.querySelector('button[class="player-button qa-fullscreen-button pl-mg-r-1 pl-button__fullscreen--tooltip-left"]').click();
+			break;
 			default:
 		}
 	}
