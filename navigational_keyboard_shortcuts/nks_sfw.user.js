@@ -10,7 +10,7 @@
 // ==/UserScript==
 
 /* LIST:
- * nyaa.si	
+ * nyaa.si
  * rarbg.com
  * reddit.com
  * steamgifts.com
