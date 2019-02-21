@@ -8,3 +8,5 @@
 	* Navigate through websites using keyboard buttons `N`/`B` for next/previous pages.
 * [Twitch Fullscreen Shortcut](twitch_fullscreen_shortcut)
 	* Enter to and exit from fullscreen with `F` keyboard button.
+* [Twitch Stop Autoplay](twitch_stop_autoplay)
+	* Tries to pause the stream on Twitch home page.
