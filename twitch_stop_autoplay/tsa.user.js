@@ -2,7 +2,7 @@
 // @name         Twitch Stop Autoplay
 // @namespace    https://github.com/kittenparry/
 // @version      0.9
-// @description  Tries to stop autoplay on Twitch main page.
+// @description  Tries to stop autoplay on Twitch home page.
 // @require https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // @author       kittenparry
 // @match        *://www.twitch.tv
