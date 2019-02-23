@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.2.2
+// @version      1.2.3
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -21,11 +21,13 @@
  * hentai-foundry.com
  * hongfire.com
  * nhentai.net
+ * nobodyhome.ga
  * pornbay.org
  * sinnercomics.com
  */
 
 /* CHANGELOG:
+ * 1.2.3: +nobodyhome.ga
  * 1.2.2: +hongfire.com
  * 1.2.1: prevent execution of code when not on these sites
  * 1.2: +f95zone.com
@@ -111,6 +113,9 @@ if(cur_loc.includes('nyaa.si')){
 }else if(cur_loc.includes('nhentai.net')){
 	var pqsel = 'a[class="previous"]';
 	var nqsel = 'a[class="next"]';
+}else if(cur_loc.includes('nobodyhome.ga')){
+	var pqsel = 'a[class="pagination_previous"]';
+	var nqsel = 'a[class="pagination_next"]';
 }else if(cur_loc.includes('pornbay.org')){
 	var pqsel = 'a[class="pager pager_prev"]';
 	var nqsel = 'a[class="pager pager_next"]';
