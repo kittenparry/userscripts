@@ -14,10 +14,13 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * tumblr.com
 
 ### NSFW
+* 8muses.com
+* camwhores.tv
 * coedcherry.com
 * f95zone.com
 * hentai-foundry.com
 * hongfire.com
 * nhentai.net
+* nobodyhome.ga
 * pornbay.org
 * sinnercomics.com
