@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.1.1.sfw
+// @version      1.2.sfw
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -10,6 +10,7 @@
 // ==/UserScript==
 
 /* LIST:
+ * metal-tracker.com
  * nyaa.si
  * rarbg.com
  * reddit.com
@@ -18,27 +19,32 @@
  */
 
 /* CHANGELOG:
+ * 1.2.sfw: metal-tracker.com | btn case switch
  * 1.1.1.sfw: prevent execution of code when not on these sites
  * 1.1: +nyaa.si
  * 1.0: initial
  */
 
-check_nav_key_press = (e, prev, next, special = false) => {
+check_nav_key_press = (e, prev, next, special = '') => {
 	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();
 	if(type != 'text' && tag != 'textarea' && type != 'search'){
 		switch(e.keyCode){
 			case 66:
-				if(special && prev != undefined){
+				if(special == 'btn' && prev != undefined){
+					document.querySelector(prev).click();
+				}else if(special == 'url' && prev != undefined){
 					window.location = prev;
-				}else if(!special){
+				}else if(special == ''){
 					window.location = document.querySelector(prev).href;
 				}
 				break;
 			case 78:
-				if(special && next != undefined){
+				if(special == 'btn' && next != undefined){
+					document.querySelector(next).click();
+				}else if(special == 'url' && next != undefined){
 					window.location = next;
-				}else if(!special){
+				}else if(special == ''){
 					window.location = document.querySelector(next).href;
 				}
 				break;
@@ -58,7 +64,11 @@ check_nav_key_press = (e, prev, next, special = false) => {
 
 var cur_loc = window.location.href;
 
-if(cur_loc.includes('nyaa.si')){
+if(cur_loc.includes('metal-tracker.com')){
+	var nav_spcl = 'btn';
+	var pqsel = 'li[class="previous"]';
+	var nqsel = 'li[class="next"]';
+}else if(cur_loc.includes('nyaa.si')){
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
 }else if(cur_loc.includes('rarbg.to')){
@@ -68,7 +78,7 @@ if(cur_loc.includes('nyaa.si')){
 	var pqsel = 'a[rel="nofollow prev"]';
 	var nqsel = 'a[rel="nofollow next"]';
 }else if(cur_loc.includes('steamgifts.com')){
-	var nav_spcl = true;
+	var nav_spcl = 'url';
 	try{
 		var pqsel = document.querySelector('i[class="fa fa-angle-left"]').parentNode.href;
 	}catch(e){}

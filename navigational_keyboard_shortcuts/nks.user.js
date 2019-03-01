@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.3.1
+// @version      1.3.2
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -10,6 +10,7 @@
 // ==/UserScript==
 
 /* LIST:
+ * metal-tracker.com
  * nyaa.si
  * rarbg.com
  * reddit.com
@@ -30,6 +31,7 @@
  */
 
 /* CHANGELOG:
+ * 1.3.2: +metal-tracker.com | btn case i wanted to use in camwhores.tv
  * 1.3.1: +shadbase.com
  * 1.3: +camwhores.tv | element needs to be reassigned each time so it's in the function
  * 1.2.4: +8muses.com
@@ -49,6 +51,8 @@ check_nav_key_press = (e, prev, next, special = '') => {
 			case 66:
 				if(special == 'camwhores'){
 					document.querySelector('li[class="page-current"]').previousElementSibling.firstElementChild.click();
+				}else if(special == 'btn' && prev != undefined){
+					document.querySelector(prev).click();
 				}else if(special == 'url' && prev != undefined){
 					window.location = prev;
 				}else if(special == ''){
@@ -58,6 +62,8 @@ check_nav_key_press = (e, prev, next, special = '') => {
 			case 78:
 				if(special == 'camwhores'){
 					document.querySelector('li[class="page-current"]').nextElementSibling.firstElementChild.click();
+				}else if(special == 'btn' && next != undefined){
+					document.querySelector(next).click();
 				}else if(special == 'url' && next != undefined){
 					window.location = next;
 				}else if(special == ''){
@@ -80,7 +86,11 @@ check_nav_key_press = (e, prev, next, special = '') => {
 
 var cur_loc = window.location.href;
 
-if(cur_loc.includes('nyaa.si')){
+if(cur_loc.includes('metal-tracker.com')){
+	var nav_spcl = 'btn';
+	var pqsel = 'li[class="previous"]';
+	var nqsel = 'li[class="next"]';
+}else if(cur_loc.includes('nyaa.si')){
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
 }else if(cur_loc.includes('rarbg.to')){
