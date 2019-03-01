@@ -25,10 +25,12 @@
  * nhentai.net
  * nobodyhome.ga
  * pornbay.org
+ * shadbase.com
  * sinnercomics.com
  */
 
 /* CHANGELOG:
+ * 1.3.1: +shadbase.com
  * 1.3: +camwhores.tv | element needs to be reassigned each time so it's in the function
  * 1.2.4: +8muses.com
  * 1.2.3: +nobodyhome.ga
@@ -134,6 +136,9 @@ if(cur_loc.includes('nyaa.si')){
 }else if(cur_loc.includes('pornbay.org')){
 	var pqsel = 'a[class="pager pager_prev"]';
 	var nqsel = 'a[class="pager pager_next"]';
+}else if(cur_loc.includes('shadbase.com')){
+	var pqsel = 'a[class="navi navi-prev"]';
+	var nqsel = 'a[class="navi navi-next"]';
 }else if(cur_loc.includes('sinnercomics.com')){
 	var pqsel = 'a[class="comic-nav-base comic-nav-previous"]';
 	var nqsel = 'a[class="comic-nav-base comic-nav-next"]';
