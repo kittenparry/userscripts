@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.2.3
+// @version      1.3
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -16,6 +16,8 @@
  * steamgifts.com
  * tumblr.com
  * NSFW:
+ * 8muses.com
+ * camwhores.tv
  * coedcherry.com
  * f95zone.com
  * hentai-foundry.com
@@ -27,6 +29,8 @@
  */
 
 /* CHANGELOG:
+ * 1.3: +camwhores.tv | element needs to be reassigned each time so it's in the function
+ * 1.2.4: +8muses.com
  * 1.2.3: +nobodyhome.ga
  * 1.2.2: +hongfire.com
  * 1.2.1: prevent execution of code when not on these sites
@@ -35,22 +39,26 @@
  * 1.0: initial
  */
 
-check_nav_key_press = (e, prev, next, special = false) => {
+check_nav_key_press = (e, prev, next, special = '') => {
 	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();
 	if(type != 'text' && tag != 'textarea' && type != 'search'){
 		switch(e.keyCode){
 			case 66:
-				if(special && prev != undefined){
+				if(special == 'camwhores'){
+					document.querySelector('li[class="page-current"]').previousElementSibling.firstElementChild.click();
+				}else if(special == 'url' && prev != undefined){
 					window.location = prev;
-				}else if(!special){
+				}else if(special == ''){
 					window.location = document.querySelector(prev).href;
 				}
 				break;
 			case 78:
-				if(special && next != undefined){
+				if(special == 'camwhores'){
+					document.querySelector('li[class="page-current"]').nextElementSibling.firstElementChild.click();
+				}else if(special == 'url' && next != undefined){
 					window.location = next;
-				}else if(!special){
+				}else if(special == ''){
 					window.location = document.querySelector(next).href;
 				}
 				break;
@@ -80,7 +88,7 @@ if(cur_loc.includes('nyaa.si')){
 	var pqsel = 'a[rel="nofollow prev"]';
 	var nqsel = 'a[rel="nofollow next"]';
 }else if(cur_loc.includes('steamgifts.com')){
-	var nav_spcl = true;
+	var nav_spcl = 'url';
 	try{
 		var pqsel = document.querySelector('i[class="fa fa-angle-left"]').parentNode.href;
 	}catch(e){}
@@ -91,6 +99,13 @@ if(cur_loc.includes('nyaa.si')){
 	var pqsel = 'a[id="previous_page_link"]';
 	var nqsel = 'a[id="next_page_link"]';
 // nsfw below
+}else if(cur_loc.includes('8muses.com')){
+	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
+	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
+}else if(cur_loc.includes('camwhores.tv')){
+	var nav_spcl = 'camwhores';
+	var pqsel = '';
+	var nqsel = '';
 }else if(cur_loc.includes('coedcherry.com')){
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
@@ -100,7 +115,7 @@ if(cur_loc.includes('nyaa.si')){
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
 }else if(cur_loc.includes('hentai-foundry.com')){
-	var nav_spcl = true;
+	var nav_spcl = 'url';
 	try{
 		var pqsel = document.querySelector('li[class="previous"]').firstChild.href;
 	}catch(e){}
