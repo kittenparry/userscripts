@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.3.2
+// @version      1.3.3
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -31,6 +31,7 @@
  */
 
 /* CHANGELOG:
+ * 1.3.3: +f95zone.to/latest/ | change the original link to .to as well
  * 1.3.2: +metal-tracker.com | btn case i wanted to use in camwhores.tv
  * 1.3.1: +shadbase.com
  * 1.3: +camwhores.tv | element needs to be reassigned each time so it's in the function
@@ -121,7 +122,11 @@ if(cur_loc.includes('metal-tracker.com')){
 }else if(cur_loc.includes('coedcherry.com')){
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
-}else if(cur_loc.includes('f95zone.com')){
+}else if(cur_loc.includes('f95zone.to/latest/')){
+	// something else for "/pages/latest/"
+	var pqsel = 'a[class="nav_prev"]';
+	var nqsel = 'a[class="nav_next"]';
+}else if(cur_loc.includes('f95zone.to')){
 	// for only threads/forums
 	// something else is required for /pages/latest/
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
