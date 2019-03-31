@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.2.sfw
+// @version      1.2.1
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -14,11 +14,13 @@
  * nyaa.si
  * rarbg.com
  * reddit.com
+ * steamcommunity.com/workshop/
  * steamgifts.com
  * tumblr.com
  */
 
 /* CHANGELOG:
+ * 1.2.1: +steamcommunity.com/workshop/ | remove sfw from version naming
  * 1.2.sfw: metal-tracker.com | btn case switch
  * 1.1.1.sfw: prevent execution of code when not on these sites
  * 1.1: +nyaa.si
@@ -77,6 +79,14 @@ if(cur_loc.includes('metal-tracker.com')){
 }else if(cur_loc.includes('reddit.com')){
 	var pqsel = 'a[rel="nofollow prev"]';
 	var nqsel = 'a[rel="nofollow next"]';
+}else if(cur_loc.includes('steamcommunity.com/workshop/')){
+	var nav_spcl = 'url';
+	try{
+		var pqsel = document.querySelectorAll('.pagebtn')[0].href;
+	}catch(e){}
+	try{
+		var nqsel = document.querySelectorAll('.pagebtn')[1].href;
+	}catch(e){}
 }else if(cur_loc.includes('steamgifts.com')){
 	var nav_spcl = 'url';
 	try{
