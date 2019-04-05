@@ -11,6 +11,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * nyaa.si
 * rarbg.com
 * reddit.com
+* steamcommunity.com/workshop/
 * steamgifts.com
 * tumblr.com
 
@@ -26,3 +27,4 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * pornbay.org
 * shadbase.com
 * sinnercomics.com
+* yiff.party/activity
