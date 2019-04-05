@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.3.4
+// @version      1.3.5
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -29,9 +29,11 @@
  * pornbay.org
  * shadbase.com
  * sinnercomics.com
+ * yiff.party/activity
  */
 
 /* CHANGELOG:
+ * 1.3.5: +yiff.party/activity | with some clunky mechanics
  * 1.3.4: +steamcommunity.com/workshop/
  * 1.3.3: +f95zone.to/latest/ | change the original link to .to as well
  * 1.3.2: +metal-tracker.com | btn case i wanted to use in camwhores.tv
@@ -49,33 +51,47 @@
 check_nav_key_press = (e, prev, next, special = '') => {
 	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();
-	if(type != 'text' && tag != 'textarea' && type != 'search'){
-		switch(e.keyCode){
+	if (type != 'text' && tag != 'textarea' && type != 'search') {
+		switch (e.keyCode) {
 			case 66:
-				if(special == 'camwhores'){
+				if (special == 'camwhores') {
 					document.querySelector('li[class="page-current"]').previousElementSibling.firstElementChild.click();
-				}else if(special == 'btn' && prev != undefined){
+				} else if(special == 'btn' && prev != undefined) {
 					document.querySelector(prev).click();
-				}else if(special == 'url' && prev != undefined){
+				} else if(special == 'url' && prev != undefined) {
 					window.location = prev;
-				}else if(special == ''){
+				} else if(special == '') {
 					window.location = document.querySelector(prev).href;
 				}
 				break;
 			case 78:
-				if(special == 'camwhores'){
+				if (special == 'camwhores') {
 					document.querySelector('li[class="page-current"]').nextElementSibling.firstElementChild.click();
-				}else if(special == 'btn' && next != undefined){
+				} else if (special == 'btn' && next != undefined) {
 					document.querySelector(next).click();
-				}else if(special == 'url' && next != undefined){
+				} else if(special == 'url' && next != undefined) {
 					window.location = next;
-				}else if(special == ''){
+				} else if(special == '') {
 					window.location = document.querySelector(next).href;
 				}
 				break;
 			default:
 		}
 	}
+};
+
+// for now only optimised for getting one result (first result)
+// with href for yiff.party
+find_els_with_text = (tag, text) => {
+	var els = document.getElementsByTagName(tag);
+	var found = [];
+	for (var i = 0; i < els.length; i++) {
+		if (els[i].innerHTML == text) {
+			found.push(els[i]);
+		}
+	}
+
+	return found[0].href;
 };
 
 /* probably need a better way than simply .includes()
@@ -89,92 +105,100 @@ check_nav_key_press = (e, prev, next, special = '') => {
 
 var cur_loc = window.location.href;
 
-if(cur_loc.includes('metal-tracker.com')){
+if (cur_loc.includes('metal-tracker.com')) {
 	var nav_spcl = 'btn';
 	var pqsel = 'li[class="previous"]';
 	var nqsel = 'li[class="next"]';
-}else if(cur_loc.includes('nyaa.si')){
+} else if (cur_loc.includes('nyaa.si')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
-}else if(cur_loc.includes('rarbg.to')){
+} else if (cur_loc.includes('rarbg.to')) {
 	var pqsel = 'a[title="previous page"]';
 	var nqsel = 'a[title="next page"]'
-}else if(cur_loc.includes('reddit.com')){
+} else if (cur_loc.includes('reddit.com')) {
 	var pqsel = 'a[rel="nofollow prev"]';
 	var nqsel = 'a[rel="nofollow next"]';
-}else if(cur_loc.includes('steamcommunity.com/workshop/')){
+} else if (cur_loc.includes('steamcommunity.com/workshop/')) {
 	var nav_spcl = 'url';
-	try{
+	try {
 		var pqsel = document.querySelectorAll('.pagebtn')[0].href;
-	}catch(e){}
-	try{
+	} catch(e) {}
+	try {
 		var nqsel = document.querySelectorAll('.pagebtn')[1].href;
-	}catch(e){}
-}else if(cur_loc.includes('steamgifts.com')){
+	} catch(e) {}
+} else if(cur_loc.includes('steamgifts.com')) {
 	var nav_spcl = 'url';
-	try{
+	try {
 		var pqsel = document.querySelector('i[class="fa fa-angle-left"]').parentNode.href;
-	}catch(e){}
+	} catch(e) {}
 	try{
 		var nqsel = document.querySelector('i[class="fa fa-angle-right"]').parentNode.href;
-	}catch(e){}
-}else if(cur_loc.includes('tumblr.com')){
+	} catch(e) {}
+} else if (cur_loc.includes('tumblr.com')) {
 	var pqsel = 'a[id="previous_page_link"]';
 	var nqsel = 'a[id="next_page_link"]';
 // nsfw below
-}else if(cur_loc.includes('8muses.com')){
+} else if (cur_loc.includes('8muses.com')) {
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
-}else if(cur_loc.includes('camwhores.tv')){
+} else if (cur_loc.includes('camwhores.tv')) {
 	var nav_spcl = 'camwhores';
 	var pqsel = '';
 	var nqsel = '';
-}else if(cur_loc.includes('coedcherry.com')){
+} else if (cur_loc.includes('coedcherry.com')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
-}else if(cur_loc.includes('f95zone.to/latest/')){
+} else if (cur_loc.includes('f95zone.to/latest/')) {
 	// something else for "/pages/latest/"
 	var pqsel = 'a[class="nav_prev"]';
 	var nqsel = 'a[class="nav_next"]';
-}else if(cur_loc.includes('f95zone.to')){
+} else if (cur_loc.includes('f95zone.to')) {
 	// for only threads/forums
 	// something else is required for /pages/latest/
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
-}else if(cur_loc.includes('hentai-foundry.com')){
+} else if (cur_loc.includes('hentai-foundry.com')) {
 	var nav_spcl = 'url';
-	try{
+	try {
 		var pqsel = document.querySelector('li[class="previous"]').firstChild.href;
-	}catch(e){}
-	try{
+	} catch(e) {}
+	try {
 		var nqsel = document.querySelector('li[class="next"]').firstChild.href;
-	}catch(e){}
-}else if(cur_loc.includes('hongfire.com')){
+	} catch(e) {}
+} else if (cur_loc.includes('hongfire.com')) {
 	var pqsel = 'a[class="js-pagenav-button js-pagenav-prev-button b-button b-button--secondary js-shrink-event-child"]';
 	var nqsel = 'a[class="js-pagenav-button js-pagenav-next-button b-button b-button--secondary js-shrink-event-child"]';
-}else if(cur_loc.includes('nhentai.net')){
+} else if (cur_loc.includes('nhentai.net')) {
 	var pqsel = 'a[class="previous"]';
 	var nqsel = 'a[class="next"]';
-}else if(cur_loc.includes('nobodyhome.ga')){
+} else if (cur_loc.includes('nobodyhome.ga')) {
 	var pqsel = 'a[class="pagination_previous"]';
 	var nqsel = 'a[class="pagination_next"]';
-}else if(cur_loc.includes('pornbay.org')){
+} else if (cur_loc.includes('pornbay.org')) {
 	var pqsel = 'a[class="pager pager_prev"]';
 	var nqsel = 'a[class="pager pager_next"]';
-}else if(cur_loc.includes('shadbase.com')){
+} else if (cur_loc.includes('shadbase.com')) {
 	var pqsel = 'a[class="navi navi-prev"]';
 	var nqsel = 'a[class="navi navi-next"]';
-}else if(cur_loc.includes('sinnercomics.com')){
+} else if (cur_loc.includes('sinnercomics.com')) {
 	var pqsel = 'a[class="comic-nav-base comic-nav-previous"]';
 	var nqsel = 'a[class="comic-nav-base comic-nav-next"]';
+} else if (cur_loc.includes('yiff.party/activity')) {
+	var nav_spcl = 'url';
+	try {
+		var pqsel = find_els_with_text('a', 'prev');
+	} catch(e) {}
+	try {
+		var nqsel = find_els_with_text('a', 'next');
+	} catch(e) {}
 }
 
-if(pqsel != undefined || nqsel != undefined){
-	try{
-		if(nav_spcl){
+if (pqsel != undefined || nqsel != undefined) {
+	try {
+		if (nav_spcl) {
 			window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel, nav_spcl), false);
-		}else{
+		} else {
 			window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel), false);
 		}
-	}catch(e){}
+	} catch(e) {}
 }
