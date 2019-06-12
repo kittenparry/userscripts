@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.2.1
+// @version      1.2.2
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -11,6 +11,7 @@
 
 /* LIST:
  * metal-tracker.com
+ * nexusmods.com
  * nyaa.si
  * rarbg.com
  * reddit.com
@@ -20,6 +21,7 @@
  */
 
 /* CHANGELOG:
+ * 1.2.2: +nexusmods.com | assignment is in the function
  * 1.2.1: +steamcommunity.com/workshop/ | remove sfw from version naming
  * 1.2.sfw: metal-tracker.com | btn case switch
  * 1.1.1.sfw: prevent execution of code when not on these sites
@@ -33,7 +35,9 @@ check_nav_key_press = (e, prev, next, special = '') => {
 	if(type != 'text' && tag != 'textarea' && type != 'search'){
 		switch(e.keyCode){
 			case 66:
-				if(special == 'btn' && prev != undefined){
+				if(special == 'nexusmods'){
+					document.querySelector('li[class="prev"]').firstElementChild.click();
+				}else if(special == 'btn' && prev != undefined){
 					document.querySelector(prev).click();
 				}else if(special == 'url' && prev != undefined){
 					window.location = prev;
@@ -42,7 +46,9 @@ check_nav_key_press = (e, prev, next, special = '') => {
 				}
 				break;
 			case 78:
-				if(special == 'btn' && next != undefined){
+				if(special == 'nexusmods'){
+					document.querySelector('li[class="next"]').firstElementChild.click();
+				}else if(special == 'btn' && next != undefined){
 					document.querySelector(next).click();
 				}else if(special == 'url' && next != undefined){
 					window.location = next;
@@ -70,6 +76,10 @@ if(cur_loc.includes('metal-tracker.com')){
 	var nav_spcl = 'btn';
 	var pqsel = 'li[class="previous"]';
 	var nqsel = 'li[class="next"]';
+}else if (cur_loc.includes('nexusmods.com')){
+	var nav_spcl = 'nexusmods';
+	var pqsel = '';
+	var nqsel = '';
 }else if(cur_loc.includes('nyaa.si')){
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';

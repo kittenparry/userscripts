@@ -8,6 +8,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 ## URL List
 
 * metal-tracker.com
+* nexusmods.com
 * nyaa.si
 * rarbg.com
 * reddit.com

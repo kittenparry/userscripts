@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.3.5
+// @version      1.3.6
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -11,6 +11,7 @@
 
 /* LIST:
  * metal-tracker.com
+ * nexusmods.com
  * nyaa.si
  * rarbg.com
  * reddit.com
@@ -34,6 +35,7 @@
  */
 
 /* CHANGELOG:
+ * 1.3.6: +nexusmods.com | a special case similar to camwhores.tv
  * 1.3.5: +yiff.party/activity | with some clunky mechanics
  * 1.3.4: +steamcommunity.com/workshop/
  * 1.3.3: +f95zone.to/latest/ | change the original link to .to as well
@@ -57,6 +59,8 @@ check_nav_key_press = (e, prev, next, special = '') => {
 			case 66:
 				if (special == 'camwhores') {
 					document.querySelector('li[class="page-current"]').previousElementSibling.firstElementChild.click();
+				} else if(special == 'nexusmods') {
+					document.querySelector('li[class="prev"]').firstElementChild.click();
 				} else if(special == 'btn' && prev != undefined) {
 					document.querySelector(prev).click();
 				} else if(special == 'url' && prev != undefined) {
@@ -68,6 +72,8 @@ check_nav_key_press = (e, prev, next, special = '') => {
 			case 78:
 				if (special == 'camwhores') {
 					document.querySelector('li[class="page-current"]').nextElementSibling.firstElementChild.click();
+				} else if(special == 'nexusmods') {
+					document.querySelector('li[class="next"]').firstElementChild.click();
 				} else if (special == 'btn' && next != undefined) {
 					document.querySelector(next).click();
 				} else if(special == 'url' && next != undefined) {
@@ -110,6 +116,10 @@ if (cur_loc.includes('metal-tracker.com')) {
 	var nav_spcl = 'btn';
 	var pqsel = 'li[class="previous"]';
 	var nqsel = 'li[class="next"]';
+} else if (cur_loc.includes('nexusmods.com')) {
+	var nav_spcl = 'nexusmods';
+	var pqsel = '';
+	var nqsel = '';
 } else if (cur_loc.includes('nyaa.si')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
