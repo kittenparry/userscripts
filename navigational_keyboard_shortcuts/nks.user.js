@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.3.6
+// @version      1.3.7
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -31,10 +31,12 @@
  * pornbay.org
  * shadbase.com
  * sinnercomics.com
+ * thothub.tv
  * yiff.party/activity
  */
 
 /* CHANGELOG:
+ * 1.3.7: +thothub.tv
  * 1.3.6: +nexusmods.com | a special case similar to camwhores.tv
  * 1.3.5: +yiff.party/activity | with some clunky mechanics
  * 1.3.4: +steamcommunity.com/workshop/
@@ -194,6 +196,9 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('sinnercomics.com')) {
 	var pqsel = 'a[class="comic-nav-base comic-nav-previous"]';
 	var nqsel = 'a[class="comic-nav-base comic-nav-next"]';
+} else if (cur_loc.includes('thothub.tv')) {
+	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
+	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
 } else if (cur_loc.includes('yiff.party/activity')) {
 	var nav_spcl = 'url';
 	try {

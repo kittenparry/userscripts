@@ -28,4 +28,5 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * pornbay.org
 * shadbase.com
 * sinnercomics.com
+* thothub.tv
 * yiff.party/activity
