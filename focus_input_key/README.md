@@ -7,3 +7,4 @@
 * rarbg.to
 * reddit.com
 * twitch.tv
+* wiktionary.org

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Focus Input Keybind
 // @namespace    https://github.com/kittenparry/
-// @version      1.0
+// @version      1.1
 // @description  Focus to search or a certain text input with forward slash (/) key similar to YouTube.
 // @author       kittenparry
 // @match        *://*/*
@@ -13,9 +13,11 @@
  * rarbg.to
  * reddit.com
  * twitch.tv
+ * wiktionary.org
  */
 
 /* CHANGELOG:
+ * 1.1: +wiktionary.org
  * 1.0: initial
  */
 
@@ -50,6 +52,8 @@ if (current_url.includes('rarbg.to')) {
 } else if (current_url.includes('twitch.tv')) {
 	var inid = 'textarea[class="tw-block tw-border-radius-medium tw-font-size-6 tw-full-width tw-textarea tw-textarea--no-resize"]';
 	var inspcl = 'selector';
+} else if (current_url.includes('wiktionary.org')) {
+	var inid = 'searchInput';
 }
 
 if (inid != undefined) {
