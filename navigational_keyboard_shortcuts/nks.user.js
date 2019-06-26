@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.3.7
+// @version      1.4
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -26,6 +26,7 @@
  * f95zone.com
  * hentai-foundry.com
  * hongfire.com
+ * javbus.com
  * nhentai.net
  * nobodyhome.ga
  * pornbay.org
@@ -36,6 +37,7 @@
  */
 
 /* CHANGELOG:
+ / 1.4: +javbus.com | also switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
  * 1.3.7: +thothub.tv
  * 1.3.6: +nexusmods.com | a special case similar to camwhores.tv
  * 1.3.5: +yiff.party/activity | with some clunky mechanics
@@ -181,6 +183,9 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('hongfire.com')) {
 	var pqsel = 'a[class="js-pagenav-button js-pagenav-prev-button b-button b-button--secondary js-shrink-event-child"]';
 	var nqsel = 'a[class="js-pagenav-button js-pagenav-next-button b-button b-button--secondary js-shrink-event-child"]';
+} else if (cur_loc.includes('javbus.com')) {
+	var pqsel = 'a[id="pre"]';
+	var nqsel = 'a[id="next"]';
 } else if (cur_loc.includes('nhentai.net')) {
 	var pqsel = 'a[class="previous"]';
 	var nqsel = 'a[class="next"]';

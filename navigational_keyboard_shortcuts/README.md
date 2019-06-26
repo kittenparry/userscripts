@@ -23,6 +23,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * f95zone.com
 * hentai-foundry.com
 * hongfire.com
+* javbus.com
 * nhentai.net
 * nobodyhome.ga
 * pornbay.org
