@@ -10,11 +10,11 @@
 // @license      MIT License
 // ==/UserScript==
 
-$( document ).ready(() => {
+$(document).ready(() => {
 	console.log('LOG: Loading page.');
 	var start_trying = setTimeout(() => {
 		var doc = document.querySelector('button[class="player-button qa-pause-play-button"]');
-		if(doc){
+		if (doc) {
 			doc.click();
 			console.log('LOG: Stopped auto-play.');
 		}

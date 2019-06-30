@@ -63,26 +63,26 @@ check_nav_key_press = (e, prev, next, special = '') => {
 			case 66:
 				if (special == 'camwhores') {
 					document.querySelector('li[class="page-current"]').previousElementSibling.firstElementChild.click();
-				} else if(special == 'nexusmods') {
+				} else if (special == 'nexusmods') {
 					document.querySelector('li[class="prev"]').firstElementChild.click();
-				} else if(special == 'btn' && prev != undefined) {
+				} else if (special == 'btn' && prev != undefined) {
 					document.querySelector(prev).click();
-				} else if(special == 'url' && prev != undefined) {
+				} else if (special == 'url' && prev != undefined) {
 					window.location = prev;
-				} else if(special == '') {
+				} else if (special == '') {
 					window.location = document.querySelector(prev).href;
 				}
 				break;
 			case 78:
 				if (special == 'camwhores') {
 					document.querySelector('li[class="page-current"]').nextElementSibling.firstElementChild.click();
-				} else if(special == 'nexusmods') {
+				} else if (special == 'nexusmods') {
 					document.querySelector('li[class="next"]').firstElementChild.click();
 				} else if (special == 'btn' && next != undefined) {
 					document.querySelector(next).click();
-				} else if(special == 'url' && next != undefined) {
+				} else if (special == 'url' && next != undefined) {
 					window.location = next;
-				} else if(special == '') {
+				} else if (special == '') {
 					window.location = document.querySelector(next).href;
 				}
 				break;
@@ -137,22 +137,22 @@ if (cur_loc.includes('metal-tracker.com')) {
 	var nav_spcl = 'url';
 	try {
 		var pqsel = document.querySelectorAll('.pagebtn')[0].href;
-	} catch(e) {}
+	} catch (e) {}
 	try {
 		var nqsel = document.querySelectorAll('.pagebtn')[1].href;
-	} catch(e) {}
-} else if(cur_loc.includes('steamgifts.com')) {
+	} catch (e) {}
+} else if (cur_loc.includes('steamgifts.com')) {
 	var nav_spcl = 'url';
 	try {
 		var pqsel = document.querySelector('i[class="fa fa-angle-left"]').parentNode.href;
-	} catch(e) {}
-	try{
+	} catch (e) {}
+	try {
 		var nqsel = document.querySelector('i[class="fa fa-angle-right"]').parentNode.href;
-	} catch(e) {}
+	} catch (e) {}
 } else if (cur_loc.includes('tumblr.com')) {
 	var pqsel = 'a[id="previous_page_link"]';
 	var nqsel = 'a[id="next_page_link"]';
-// nsfw below
+	// nsfw below
 } else if (cur_loc.includes('8muses.com')) {
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
@@ -176,10 +176,10 @@ if (cur_loc.includes('metal-tracker.com')) {
 	var nav_spcl = 'url';
 	try {
 		var pqsel = document.querySelector('li[class="previous"]').firstChild.href;
-	} catch(e) {}
+	} catch (e) {}
 	try {
 		var nqsel = document.querySelector('li[class="next"]').firstChild.href;
-	} catch(e) {}
+	} catch (e) {}
 } else if (cur_loc.includes('hongfire.com')) {
 	var pqsel = 'a[class="js-pagenav-button js-pagenav-prev-button b-button b-button--secondary js-shrink-event-child"]';
 	var nqsel = 'a[class="js-pagenav-button js-pagenav-next-button b-button b-button--secondary js-shrink-event-child"]';
@@ -208,10 +208,10 @@ if (cur_loc.includes('metal-tracker.com')) {
 	var nav_spcl = 'url';
 	try {
 		var pqsel = find_els_with_text('a', 'prev');
-	} catch(e) {}
+	} catch (e) {}
 	try {
 		var nqsel = find_els_with_text('a', 'next');
-	} catch(e) {}
+	} catch (e) {}
 }
 
 if (pqsel != undefined || nqsel != undefined) {
@@ -221,5 +221,5 @@ if (pqsel != undefined || nqsel != undefined) {
 		} else {
 			window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel), false);
 		}
-	} catch(e) {}
+	} catch (e) {}
 }

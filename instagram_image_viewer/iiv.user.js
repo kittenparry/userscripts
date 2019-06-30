@@ -12,12 +12,9 @@
 window.addEventListener('keydown', (e) => {
 	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();
-	if(type != 'text' && tag != 'textarea'){
-		switch(e.keyCode){
-			case 68:
-				window.location = document.querySelector('meta[property="og:image"]').getAttribute('content');
-				break;
-			default:
+	if (type != 'text' && tag != 'textarea') {
+		if (e.keyCode == 68) {
+			window.location = document.querySelector('meta[property="og:image"]').getAttribute('content');
 		}
 	}
 }, false);

@@ -32,27 +32,27 @@
 check_nav_key_press = (e, prev, next, special = '') => {
 	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();
-	if(type != 'text' && tag != 'textarea' && type != 'search'){
-		switch(e.keyCode){
+	if (type != 'text' && tag != 'textarea' && type != 'search') {
+		switch (e.keyCode) {
 			case 66:
-				if(special == 'nexusmods'){
+				if (special == 'nexusmods') {
 					document.querySelector('li[class="prev"]').firstElementChild.click();
-				}else if(special == 'btn' && prev != undefined){
+				} else if (special == 'btn' && prev != undefined) {
 					document.querySelector(prev).click();
-				}else if(special == 'url' && prev != undefined){
+				} else if (special == 'url' && prev != undefined) {
 					window.location = prev;
-				}else if(special == ''){
+				} else if (special == '') {
 					window.location = document.querySelector(prev).href;
 				}
 				break;
 			case 78:
-				if(special == 'nexusmods'){
+				if (special == 'nexusmods') {
 					document.querySelector('li[class="next"]').firstElementChild.click();
-				}else if(special == 'btn' && next != undefined){
+				} else if (special == 'btn' && next != undefined) {
 					document.querySelector(next).click();
-				}else if(special == 'url' && next != undefined){
+				} else if (special == 'url' && next != undefined) {
 					window.location = next;
-				}else if(special == ''){
+				} else if (special == '') {
 					window.location = document.querySelector(next).href;
 				}
 				break;
@@ -72,50 +72,50 @@ check_nav_key_press = (e, prev, next, special = '') => {
 
 var cur_loc = window.location.href;
 
-if(cur_loc.includes('metal-tracker.com')){
+if (cur_loc.includes('metal-tracker.com')) {
 	var nav_spcl = 'btn';
 	var pqsel = 'li[class="previous"]';
 	var nqsel = 'li[class="next"]';
-}else if (cur_loc.includes('nexusmods.com')){
+} else if (cur_loc.includes('nexusmods.com')) {
 	var nav_spcl = 'nexusmods';
 	var pqsel = '';
 	var nqsel = '';
-}else if(cur_loc.includes('nyaa.si')){
+} else if (cur_loc.includes('nyaa.si')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
-}else if(cur_loc.includes('rarbg.to')){
+} else if (cur_loc.includes('rarbg.to')) {
 	var pqsel = 'a[title="previous page"]';
 	var nqsel = 'a[title="next page"]'
-}else if(cur_loc.includes('reddit.com')){
+} else if (cur_loc.includes('reddit.com')) {
 	var pqsel = 'a[rel="nofollow prev"]';
 	var nqsel = 'a[rel="nofollow next"]';
-}else if(cur_loc.includes('steamcommunity.com/workshop/')){
+} else if (cur_loc.includes('steamcommunity.com/workshop/')) {
 	var nav_spcl = 'url';
-	try{
+	try {
 		var pqsel = document.querySelectorAll('.pagebtn')[0].href;
-	}catch(e){}
-	try{
+	} catch (e) {}
+	try {
 		var nqsel = document.querySelectorAll('.pagebtn')[1].href;
-	}catch(e){}
-}else if(cur_loc.includes('steamgifts.com')){
+	} catch (e) {}
+} else if (cur_loc.includes('steamgifts.com')) {
 	var nav_spcl = 'url';
-	try{
+	try {
 		var pqsel = document.querySelector('i[class="fa fa-angle-left"]').parentNode.href;
-	}catch(e){}
-	try{
+	} catch (e) {}
+	try {
 		var nqsel = document.querySelector('i[class="fa fa-angle-right"]').parentNode.href;
-	}catch(e){}
-}else if(cur_loc.includes('tumblr.com')){
+	} catch (e) {}
+} else if (cur_loc.includes('tumblr.com')) {
 	var pqsel = 'a[id="previous_page_link"]';
 	var nqsel = 'a[id="next_page_link"]';
 }
 
-if(pqsel != undefined || nqsel != undefined){
-	try{
-		if(nav_spcl){
+if (pqsel != undefined || nqsel != undefined) {
+	try {
+		if (nav_spcl) {
 			window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel, nav_spcl), false);
-		}else{
+		} else {
 			window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel), false);
 		}
-	}catch(e){}
+	} catch (e) {}
 }
