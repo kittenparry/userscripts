@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.4
+// @version      1.5
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -27,6 +27,8 @@
  * hentai-foundry.com
  * hongfire.com
  * javbus.com
+ * meitulu.com
+ * meituri.com
  * nhentai.net
  * nobodyhome.ga
  * pornbay.org
@@ -37,7 +39,8 @@
  */
 
 /* CHANGELOG:
- / 1.4: +javbus.com | also switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
+ * 1.5: +meituri.com +meitulu.com | they work the same way so a simple or will do
+ * 1.4: +javbus.com | also switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
  * 1.3.7: +thothub.tv
  * 1.3.6: +nexusmods.com | a special case similar to camwhores.tv
  * 1.3.5: +yiff.party/activity | with some clunky mechanics
@@ -65,6 +68,8 @@ check_nav_key_press = (e, prev, next, special = '') => {
 					document.querySelector('li[class="page-current"]').previousElementSibling.firstElementChild.click();
 				} else if (special == 'nexusmods') {
 					document.querySelector('li[class="prev"]').firstElementChild.click();
+				} else if (special == 'meituri') {
+					document.querySelectorAll('.a1')[0].click();
 				} else if (special == 'btn' && prev != undefined) {
 					document.querySelector(prev).click();
 				} else if (special == 'url' && prev != undefined) {
@@ -78,6 +83,8 @@ check_nav_key_press = (e, prev, next, special = '') => {
 					document.querySelector('li[class="page-current"]').nextElementSibling.firstElementChild.click();
 				} else if (special == 'nexusmods') {
 					document.querySelector('li[class="next"]').firstElementChild.click();
+				} else if (special == 'meituri') {
+					document.querySelectorAll('.a1')[1].click();
 				} else if (special == 'btn' && next != undefined) {
 					document.querySelector(next).click();
 				} else if (special == 'url' && next != undefined) {
@@ -186,6 +193,10 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('javbus.com')) {
 	var pqsel = 'a[id="pre"]';
 	var nqsel = 'a[id="next"]';
+} else if (cur_loc.includes('meituri.com') || cur_loc.includes('meitulu.com')) {
+	var nav_spcl = 'meituri';
+	var pqsel = '';
+	var nqsel = '';
 } else if (cur_loc.includes('nhentai.net')) {
 	var pqsel = 'a[class="previous"]';
 	var nqsel = 'a[class="next"]';
