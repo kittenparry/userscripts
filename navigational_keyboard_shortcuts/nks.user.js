@@ -62,38 +62,34 @@ check_nav_key_press = (e, prev, next, special = '') => {
 	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();
 	if (type != 'text' && tag != 'textarea' && type != 'search') {
-		switch (e.keyCode) {
-			case 66:
-				if (special == 'camwhores') {
-					document.querySelector('li[class="page-current"]').previousElementSibling.firstElementChild.click();
-				} else if (special == 'nexusmods') {
-					document.querySelector('li[class="prev"]').firstElementChild.click();
-				} else if (special == 'meituri') {
-					document.querySelectorAll('.a1')[0].click();
-				} else if (special == 'btn' && prev != undefined) {
-					document.querySelector(prev).click();
-				} else if (special == 'url' && prev != undefined) {
-					window.location = prev;
-				} else if (special == '') {
-					window.location = document.querySelector(prev).href;
-				}
-				break;
-			case 78:
-				if (special == 'camwhores') {
-					document.querySelector('li[class="page-current"]').nextElementSibling.firstElementChild.click();
-				} else if (special == 'nexusmods') {
-					document.querySelector('li[class="next"]').firstElementChild.click();
-				} else if (special == 'meituri') {
-					document.querySelectorAll('.a1')[1].click();
-				} else if (special == 'btn' && next != undefined) {
-					document.querySelector(next).click();
-				} else if (special == 'url' && next != undefined) {
-					window.location = next;
-				} else if (special == '') {
-					window.location = document.querySelector(next).href;
-				}
-				break;
-			default:
+		if (e.keyCode == 66) {
+			if (special == 'camwhores') {
+				document.querySelector('li[class="page-current"]').previousElementSibling.firstElementChild.click();
+			} else if (special == 'nexusmods') {
+				document.querySelector('li[class="prev"]').firstElementChild.click();
+			} else if (special == 'meituri') {
+				document.querySelectorAll('.a1')[0].click();
+			} else if (special == 'btn' && prev != undefined) {
+				document.querySelector(prev).click();
+			} else if (special == 'url' && prev != undefined) {
+				window.location = prev;
+			} else if (special == '') {
+				window.location = document.querySelector(prev).href;
+			}
+		} else if (e.keyCode == 78) {
+			if (special == 'camwhores') {
+				document.querySelector('li[class="page-current"]').nextElementSibling.firstElementChild.click();
+			} else if (special == 'nexusmods') {
+				document.querySelector('li[class="next"]').firstElementChild.click();
+			} else if (special == 'meituri') {
+				document.querySelectorAll('.a1')[1].click();
+			} else if (special == 'btn' && next != undefined) {
+				document.querySelector(next).click();
+			} else if (special == 'url' && next != undefined) {
+				window.location = next;
+			} else if (special == '') {
+				window.location = document.querySelector(next).href;
+			}
 		}
 	}
 };
