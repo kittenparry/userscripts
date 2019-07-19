@@ -1,0 +1,2 @@
+- [ ] chaturbate.com
+- [ ] randomword.com
