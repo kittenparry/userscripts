@@ -13,7 +13,7 @@
  * metal-tracker.com
  * nexusmods.com
  * nyaa.si
- * rarbg.to/rarbgproxy.org
+ * rarbg.to || rarbgproxy.org
  * reddit.com
  * steamcommunity.com/workshop/
  * steamgifts.com
