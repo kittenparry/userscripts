@@ -1,3 +1,4 @@
 - [x] chaturbate.com
 - [ ] ~~randomword.com~~ this is basically refreshing the page
 - [ ] pastebin.com?
+- [ ] hanime.tv
