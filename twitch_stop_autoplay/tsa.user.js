@@ -7,7 +7,7 @@
 // @author       kittenparry
 // @match        *://www.twitch.tv
 // @grant        none
-// @license      MIT License
+// @license      GPL-3.0-or-later
 // ==/UserScript==
 
 $(document).ready(() => {

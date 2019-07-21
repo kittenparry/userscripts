@@ -6,7 +6,7 @@
 // @author       kittenparry
 // @match        *://*/*
 // @grant        none
-// @license      MIT License
+// @license      GPL-3.0-or-later
 // ==/UserScript==
 
 /* LIST:
