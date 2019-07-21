@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.2.2
+// @version      1.2.3
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -13,7 +13,7 @@
  * metal-tracker.com
  * nexusmods.com
  * nyaa.si
- * rarbg.com
+ * rarbg.to/rarbgproxy.org
  * reddit.com
  * steamcommunity.com/workshop/
  * steamgifts.com
@@ -21,6 +21,7 @@
  */
 
 /* CHANGELOG:
+ * 1.2.3: +rarbgproxy.org as an alternative to rarbg.to
  * 1.2.2: +nexusmods.com | assignment is in the function
  * 1.2.1: +steamcommunity.com/workshop/ | remove sfw from version naming
  * 1.2.sfw: metal-tracker.com | btn case switch
@@ -79,7 +80,7 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('nyaa.si')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
-} else if (cur_loc.includes('rarbg.to')) {
+} else if (cur_loc.includes('rarbg.to') || cur_loc.includes('rarbgproxy.org')) {
 	var pqsel = 'a[title="previous page"]';
 	var nqsel = 'a[title="next page"]'
 } else if (cur_loc.includes('reddit.com')) {

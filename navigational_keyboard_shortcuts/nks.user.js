@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.6
+// @version      1.6.1
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -13,7 +13,7 @@
  * metal-tracker.com
  * nexusmods.com
  * nyaa.si
- * rarbg.com
+ * rarbg.to/rarbgproxy.org
  * reddit.com
  * steamcommunity.com/workshop/
  * steamgifts.com
@@ -40,9 +40,10 @@
  */
 
 /* CHANGELOG:
- * 1.6: +chaturbate.com
- * 1.5: +meituri.com +meitulu.com | they work the same way so a simple or will do
- * 1.4: +javbus.com | also switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
+ * 1.6.1: +rarbgproxy.org as an alternative to rarbg.to
+ * 1.6:   +chaturbate.com
+ * 1.5:   +meituri.com +meitulu.com | they work the same way so a simple or will do
+ * 1.4:   +javbus.com | also switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
  * 1.3.7: +thothub.tv
  * 1.3.6: +nexusmods.com | a special case similar to camwhores.tv
  * 1.3.5: +yiff.party/activity | with some clunky mechanics
@@ -50,14 +51,14 @@
  * 1.3.3: +f95zone.to/latest/ | change the original link to .to as well
  * 1.3.2: +metal-tracker.com | btn case i wanted to use in camwhores.tv
  * 1.3.1: +shadbase.com
- * 1.3: +camwhores.tv | element needs to be reassigned each time so it's in the function
+ * 1.3:   +camwhores.tv | element needs to be reassigned each time so it's in the function
  * 1.2.4: +8muses.com
  * 1.2.3: +nobodyhome.ga
  * 1.2.2: +hongfire.com
  * 1.2.1: prevent execution of code when not on these sites
- * 1.2: +f95zone.com
- * 1.1: +nyaa.si +coedcherry.com
- * 1.0: initial
+ * 1.2:   +f95zone.com
+ * 1.1:   +nyaa.si +coedcherry.com
+ * 1.0:   initial
  */
 
 check_nav_key_press = (e, prev, next, special = '') => {
@@ -132,7 +133,7 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('nyaa.si')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
-} else if (cur_loc.includes('rarbg.to')) {
+} else if (cur_loc.includes('rarbg.to') || cur_loc.includes('rarbgproxy.org')) {
 	var pqsel = 'a[title="previous page"]';
 	var nqsel = 'a[title="next page"]'
 } else if (cur_loc.includes('reddit.com')) {

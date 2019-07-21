@@ -10,7 +10,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * metal-tracker.com
 * nexusmods.com
 * nyaa.si
-* rarbg.com
+* rarbg.to/rarbgproxy.org
 * reddit.com
 * steamcommunity.com/workshop/
 * steamgifts.com
