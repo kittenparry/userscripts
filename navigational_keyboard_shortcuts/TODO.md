@@ -1,0 +1,3 @@
+- [ ] chaturbate.com
+- [ ] randomword.com
+- [ ] pastebin.com?
