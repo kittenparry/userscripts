@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.5
+// @version      1.6
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -22,6 +22,7 @@
  * NSFW:
  * 8muses.com
  * camwhores.tv
+ * chaturbate.com
  * coedcherry.com
  * f95zone.com
  * hentai-foundry.com
@@ -39,6 +40,7 @@
  */
 
 /* CHANGELOG:
+ * 1.6: +chaturbate.com
  * 1.5: +meituri.com +meitulu.com | they work the same way so a simple or will do
  * 1.4: +javbus.com | also switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
  * 1.3.7: +thothub.tv
@@ -163,6 +165,9 @@ if (cur_loc.includes('metal-tracker.com')) {
 	var nav_spcl = 'camwhores';
 	var pqsel = '';
 	var nqsel = '';
+} else if (cur_loc.includes('chaturbate.com')) {
+	var pqsel = 'a[class="prev endless_page_link"]';
+	var nqsel = 'a[class="next endless_page_link"]';
 } else if (cur_loc.includes('coedcherry.com')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';

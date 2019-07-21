@@ -19,6 +19,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 ### NSFW
 * 8muses.com
 * camwhores.tv
+* chaturbate.com
 * coedcherry.com
 * f95zone.com
 * hentai-foundry.com

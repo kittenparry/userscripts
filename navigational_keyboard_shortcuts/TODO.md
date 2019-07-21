@@ -1,3 +1,3 @@
-- [ ] chaturbate.com
-- [ ] randomword.com
+- [x] chaturbate.com
+- [ ] ~~randomword.com~~ this is basically refreshing the page
 - [ ] pastebin.com?
