@@ -29,6 +29,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * meituri.com
 * nhentai.net
 * nobodyhome.ga
+* planetsuzy.org
 * pornbay.org
 * shadbase.com
 * sinnercomics.com
