@@ -2,3 +2,4 @@
 - [ ] ~~randomword.com~~ this is basically refreshing the page
 - [ ] pastebin.com?
 - [ ] hanime.tv
+- [ ] recurbate.com
