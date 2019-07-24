@@ -3,3 +3,4 @@
 - [ ] pastebin.com?
 - [ ] hanime.tv
 - [ ] recurbate.com
+- [ ] erome.com
