@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.7
+// @version      1.7.1
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -31,7 +31,7 @@
  * meitulu.com
  * meituri.com
  * nhentai.net
- * nobodyhome.ga
+ * nobodyhome.tv
  * planetsuzy.org
  * pornbay.org
  * shadbase.com
@@ -41,6 +41,7 @@
  */
 
 /* CHANGELOG:
+ * 1.7.1: +nobodyhome.tv instead of nobodyhome.ga (domain change)
  * 1.7:   +planetsuzy.org
  * 1.6.1: +rarbgproxy.org as an alternative to rarbg.to
  * 1.6:   +chaturbate.com
@@ -204,7 +205,7 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('nhentai.net')) {
 	var pqsel = 'a[class="previous"]';
 	var nqsel = 'a[class="next"]';
-} else if (cur_loc.includes('nobodyhome.ga')) {
+} else if (cur_loc.includes('nobodyhome.tv')) {
 	var pqsel = 'a[class="pagination_previous"]';
 	var nqsel = 'a[class="pagination_next"]';
 } else if (cur_loc.includes('planetsuzy.org')) {
