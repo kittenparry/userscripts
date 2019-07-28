@@ -23,6 +23,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * coedcherry.com
 * erome.com
 * f95zone.com
+* hanime.tv
 * hentai-foundry.com
 * hongfire.com
 * javbus.com
@@ -32,6 +33,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * nobodyhome.tv
 * planetsuzy.org
 * pornbay.org
+* recurbate.com
 * shadbase.com
 * sinnercomics.com
 * thothub.tv
