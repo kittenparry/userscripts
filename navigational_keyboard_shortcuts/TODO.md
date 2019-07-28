@@ -1,6 +1,6 @@
 - [x] chaturbate.com
 - [ ] ~~randomword.com~~ this is basically refreshing the page
 - [ ] pastebin.com?
-- [ ] hanime.tv
-- [ ] recurbate.com
-- [ ] erome.com
+- [x] hanime.tv
+- [x] recurbate.com
+- [x] erome.com

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.7.1
+// @version      1.8
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -24,7 +24,9 @@
  * camwhores.tv
  * chaturbate.com
  * coedcherry.com
+ * erome.com
  * f95zone.com
+ * hanime.tv
  * hentai-foundry.com
  * hongfire.com
  * javbus.com
@@ -34,6 +36,7 @@
  * nobodyhome.tv
  * planetsuzy.org
  * pornbay.org
+ * recurbate.com
  * shadbase.com
  * sinnercomics.com
  * thothub.tv
@@ -41,6 +44,7 @@
  */
 
 /* CHANGELOG:
+ * 1.8:   +erome.com +recurbate.com +hanime.tv
  * 1.7.1: +nobodyhome.tv instead of nobodyhome.ga (domain change)
  * 1.7:   +planetsuzy.org
  * 1.6.1: +rarbgproxy.org as an alternative to rarbg.to
@@ -75,6 +79,8 @@ check_nav_key_press = (e, prev, next, special = '') => {
 				document.querySelector('li[class="prev"]').firstElementChild.click();
 			} else if (special == 'meituri') {
 				document.querySelectorAll('.a1')[0].click();
+			} else if (special == 'hanime') {
+				document.querySelectorAll('.pagination__navigation')[0].click()
 			} else if (special == 'btn' && prev != undefined) {
 				document.querySelector(prev).click();
 			} else if (special == 'url' && prev != undefined) {
@@ -89,6 +95,8 @@ check_nav_key_press = (e, prev, next, special = '') => {
 				document.querySelector('li[class="next"]').firstElementChild.click();
 			} else if (special == 'meituri') {
 				document.querySelectorAll('.a1')[1].click();
+			} else if (special == 'hanime') {
+				document.querySelectorAll('.pagination__navigation')[3].click()
 			} else if (special == 'btn' && next != undefined) {
 				document.querySelector(next).click();
 			} else if (special == 'url' && next != undefined) {
@@ -175,6 +183,9 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('coedcherry.com')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
+} else if (cur_loc.includes('erome.com')) {
+	var pqsel = 'a[rel="prev"]';
+	var nqsel = 'a[rel="next"]';
 } else if (cur_loc.includes('f95zone.to/latest/')) {
 	// something else for "/pages/latest/"
 	var pqsel = 'a[class="nav_prev"]';
@@ -184,6 +195,10 @@ if (cur_loc.includes('metal-tracker.com')) {
 	// something else is required for /pages/latest/
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
+} else if (cur_loc.includes('hanime.tv')) {
+	var nav_spcl = 'hanime'
+	var pqsel = '';
+	var nqsel = '';
 } else if (cur_loc.includes('hentai-foundry.com')) {
 	var nav_spcl = 'url';
 	try {
@@ -214,6 +229,9 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('pornbay.org')) {
 	var pqsel = 'a[class="pager pager_prev"]';
 	var nqsel = 'a[class="pager pager_next"]';
+} else if (cur_loc.includes('recurbate.com')) {
+	var pqsel = 'a[aria-label="Previous"]';
+	var nqsel = 'a[aria-label="Next"]';
 } else if (cur_loc.includes('shadbase.com')) {
 	var pqsel = 'a[class="navi navi-prev"]';
 	var nqsel = 'a[class="navi navi-next"]';

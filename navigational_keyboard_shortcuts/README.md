@@ -21,6 +21,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * camwhores.tv
 * chaturbate.com
 * coedcherry.com
+* erome.com
 * f95zone.com
 * hentai-foundry.com
 * hongfire.com
