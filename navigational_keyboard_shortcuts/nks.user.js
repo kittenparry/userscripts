@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.9
+// @version      1.9.1
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -45,6 +45,7 @@
  */
 
 /* CHANGELOG:
+ * 1.9.1: ability to navigate to first/last pages on pornbay.org
  * 1.9:   +rec-tube.com
  * 1.8:   +erome.com +recurbate.com +hanime.tv
  * 1.7.1: +nobodyhome.tv instead of nobodyhome.ga (domain change)
@@ -229,8 +230,21 @@ if (cur_loc.includes('metal-tracker.com')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
 } else if (cur_loc.includes('pornbay.org')) {
-	var pqsel = 'a[class="pager pager_prev"]';
-	var nqsel = 'a[class="pager pager_next"]';
+	var nav_spcl = 'url';
+	try {
+		try {
+			var pqsel = document.querySelector('a[class="pager pager_prev"]').href;
+		} catch (e) {
+			var pqsel = document.querySelector('a[class="pager pager_first"]').href;
+		}
+	} catch (e) {}
+	try {
+		try {
+			var nqsel = document.querySelector('a[class="pager pager_next"]').href;
+		} catch (e) {
+			var nqsel = document.querySelector('a[class="pager pager_last"]').href;
+		}
+	} catch (e) {}
 } else if (cur_loc.includes('recurbate.com')) {
 	var pqsel = 'a[aria-label="Previous"]';
 	var nqsel = 'a[aria-label="Next"]';
