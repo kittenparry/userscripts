@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.9.1
+// @version      1.9.2
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -45,6 +45,7 @@
  */
 
 /* CHANGELOG:
+ * 1.9.2: additional functions to ease repetition & meituri/meitulu isn't special anymore
  * 1.9.1: ability to navigate to first/last pages on pornbay.org
  * 1.9:   +rec-tube.com
  * 1.8:   +erome.com +recurbate.com +hanime.tv
@@ -80,39 +81,35 @@ check_nav_key_press = (e, prev, next, special = '') => {
 				document.querySelector('li[class="page-current"]').previousElementSibling.firstElementChild.click();
 			} else if (special == 'nexusmods') {
 				document.querySelector('li[class="prev"]').firstElementChild.click();
-			} else if (special == 'meituri') {
-				document.querySelectorAll('.a1')[0].click();
 			} else if (special == 'hanime') {
-				document.querySelectorAll('.pagination__navigation')[0].click();
+				sel_and_click('.pagination__navigation', 0);
 			} else if (special == 'btn' && prev != undefined) {
 				document.querySelector(prev).click();
 			} else if (special == 'url' && prev != undefined) {
 				window.location = prev;
 			} else if (special == '') {
-				window.location = document.querySelector(prev).href;
+				window.location = get_query_href(prev);
 			}
 		} else if (e.keyCode == 78) {
 			if (special == 'camwhores') {
 				document.querySelector('li[class="page-current"]').nextElementSibling.firstElementChild.click();
 			} else if (special == 'nexusmods') {
 				document.querySelector('li[class="next"]').firstElementChild.click();
-			} else if (special == 'meituri') {
-				document.querySelectorAll('.a1')[1].click();
 			} else if (special == 'hanime') {
-				document.querySelectorAll('.pagination__navigation')[3].click();
+				sel_and_click('.pagination__navigation', 3);
 			} else if (special == 'btn' && next != undefined) {
 				document.querySelector(next).click();
 			} else if (special == 'url' && next != undefined) {
 				window.location = next;
 			} else if (special == '') {
-				window.location = document.querySelector(next).href;
+				window.location = get_query_href(next);
 			}
 		}
 	}
 };
 
-// for now only optimised for getting one result (first result)
-// with href for yiff.party
+// return the first result of a given tag with the text
+// eg. ('a', 'prev') returns the anchor with 'prev' innerHTML
 find_els_with_text = (tag, text) => {
 	var els = document.getElementsByTagName(tag);
 	var found = [];
@@ -124,6 +121,21 @@ find_els_with_text = (tag, text) => {
 
 	return found[0].href;
 };
+
+// return the href of given selector
+get_query_href = (sel) => {
+	return document.querySelector(sel).href;
+};
+
+// click the idxth element of given selector
+sel_and_click = (sel, idx) => {
+	document.querySelectorAll(sel)[idx].click();
+}
+
+// return the href of given selector at idxth
+get_sel_href = (sel, idx) => {
+	return document.querySelectorAll(sel)[idx].href;
+}
 
 /* probably need a better way than simply .includes()
  * pqsel: previous query selector
@@ -156,10 +168,10 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('steamcommunity.com/workshop/')) {
 	var nav_spcl = 'url';
 	try {
-		var pqsel = document.querySelectorAll('.pagebtn')[0].href;
+		var pqsel = get_sel_href('.pagebtn', 0);
 	} catch (e) {}
 	try {
-		var nqsel = document.querySelectorAll('.pagebtn')[1].href;
+		var nqsel = get_sel_href('.pagebtn', 1);
 	} catch (e) {}
 } else if (cur_loc.includes('steamgifts.com')) {
 	var nav_spcl = 'url';
@@ -217,9 +229,13 @@ if (cur_loc.includes('metal-tracker.com')) {
 	var pqsel = 'a[id="pre"]';
 	var nqsel = 'a[id="next"]';
 } else if (cur_loc.includes('meituri.com') || cur_loc.includes('meitulu.com')) {
-	var nav_spcl = 'meituri';
-	var pqsel = '';
-	var nqsel = '';
+	var nav_spcl = 'url';
+	try {
+		var pqsel = get_sel_href('.a1', 0);
+	} catch (e) {}
+	try {
+		var nqsel = get_sel_href('.a1', 1);
+	} catch (e) {}
 } else if (cur_loc.includes('nhentai.net')) {
 	var pqsel = 'a[class="previous"]';
 	var nqsel = 'a[class="next"]';
@@ -233,16 +249,16 @@ if (cur_loc.includes('metal-tracker.com')) {
 	var nav_spcl = 'url';
 	try {
 		try {
-			var pqsel = document.querySelector('a[class="pager pager_prev"]').href;
+			var pqsel = get_query_href('a[class="pager pager_prev"]');
 		} catch (e) {
-			var pqsel = document.querySelector('a[class="pager pager_first"]').href;
+			var pqsel = get_query_href('a[class="pager pager_first"]');
 		}
 	} catch (e) {}
 	try {
 		try {
-			var nqsel = document.querySelector('a[class="pager pager_next"]').href;
+			var nqsel = get_query_href('a[class="pager pager_next"]');
 		} catch (e) {
-			var nqsel = document.querySelector('a[class="pager pager_last"]').href;
+			var nqsel = get_query_href('a[class="pager pager_last"]');
 		}
 	} catch (e) {}
 } else if (cur_loc.includes('recurbate.com')) {
