@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.8
+// @version      1.9
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -37,6 +37,7 @@
  * planetsuzy.org
  * pornbay.org
  * recurbate.com
+ * rec-tube.com
  * shadbase.com
  * sinnercomics.com
  * thothub.tv
@@ -44,6 +45,7 @@
  */
 
 /* CHANGELOG:
+ * 1.9:   +rec-tube.com
  * 1.8:   +erome.com +recurbate.com +hanime.tv
  * 1.7.1: +nobodyhome.tv instead of nobodyhome.ga (domain change)
  * 1.7:   +planetsuzy.org
@@ -80,7 +82,7 @@ check_nav_key_press = (e, prev, next, special = '') => {
 			} else if (special == 'meituri') {
 				document.querySelectorAll('.a1')[0].click();
 			} else if (special == 'hanime') {
-				document.querySelectorAll('.pagination__navigation')[0].click()
+				document.querySelectorAll('.pagination__navigation')[0].click();
 			} else if (special == 'btn' && prev != undefined) {
 				document.querySelector(prev).click();
 			} else if (special == 'url' && prev != undefined) {
@@ -96,7 +98,7 @@ check_nav_key_press = (e, prev, next, special = '') => {
 			} else if (special == 'meituri') {
 				document.querySelectorAll('.a1')[1].click();
 			} else if (special == 'hanime') {
-				document.querySelectorAll('.pagination__navigation')[3].click()
+				document.querySelectorAll('.pagination__navigation')[3].click();
 			} else if (special == 'btn' && next != undefined) {
 				document.querySelector(next).click();
 			} else if (special == 'url' && next != undefined) {
@@ -232,6 +234,22 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('recurbate.com')) {
 	var pqsel = 'a[aria-label="Previous"]';
 	var nqsel = 'a[aria-label="Next"]';
+} else if (cur_loc.includes('rec-tube.com')) {
+	var nav_spcl = 'url';
+	try {
+		try {
+			var pqsel = find_els_with_text('a', 'Prev Page');
+		} catch (e) {
+			var pqsel = find_els_with_text('a', 'First Page')
+		}
+	} catch (e) {}
+	try {
+		try {
+			var nqsel = find_els_with_text('a', 'Next Page');
+		} catch (e) {
+			var nqsel = find_els_with_text('a', 'Last Page')
+		}
+	} catch (e) {}
 } else if (cur_loc.includes('shadbase.com')) {
 	var pqsel = 'a[class="navi navi-prev"]';
 	var nqsel = 'a[class="navi navi-next"]';

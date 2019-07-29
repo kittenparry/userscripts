@@ -34,6 +34,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * planetsuzy.org
 * pornbay.org
 * recurbate.com
+* rec-tube.com
 * shadbase.com
 * sinnercomics.com
 * thothub.tv
