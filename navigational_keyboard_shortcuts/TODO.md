@@ -4,3 +4,4 @@
 - [x] hanime.tv
 - [x] recurbate.com
 - [x] erome.com
+- [ ] trakt.tv
