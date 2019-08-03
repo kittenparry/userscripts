@@ -5,3 +5,4 @@
 - [x] recurbate.com
 - [x] erome.com
 - [ ] trakt.tv
+- [ ] camvault.xyz
