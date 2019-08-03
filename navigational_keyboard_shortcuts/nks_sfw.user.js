@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.2.3
+// @version      1.3
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -17,17 +17,19 @@
  * reddit.com
  * steamcommunity.com/workshop/
  * steamgifts.com
+ * trakt.tv
  * tumblr.com
  */
 
 /* CHANGELOG:
- * 1.2.3: +rarbgproxy.org as an alternative to rarbg.to
- * 1.2.2: +nexusmods.com | assignment is in the function
- * 1.2.1: +steamcommunity.com/workshop/ | remove sfw from version naming
- * 1.2.sfw: metal-tracker.com | btn case switch
+ * 1.3:       +trakt.tv | only works in episode/season views | switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
+ * 1.2.3:     +rarbgproxy.org as an alternative to rarbg.to
+ * 1.2.2:     +nexusmods.com | assignment is in the function
+ * 1.2.1:     +steamcommunity.com/workshop/ | remove sfw from version naming
+ * 1.2.sfw:   metal-tracker.com | btn case switch
  * 1.1.1.sfw: prevent execution of code when not on these sites
- * 1.1: +nyaa.si
- * 1.0: initial
+ * 1.1:       +nyaa.si
+ * 1.0:       initial
  */
 
 check_nav_key_press = (e, prev, next, special = '') => {
@@ -102,6 +104,9 @@ if (cur_loc.includes('metal-tracker.com')) {
 	try {
 		var nqsel = document.querySelector('i[class="fa fa-angle-right"]').parentNode.href;
 	} catch (e) {}
+} else if (cur_loc.includes('trakt.tv')) {
+	var pqsel = 'a[class="previous-item-link"]';
+	var nqsel = 'a[class="next-item-link"]';
 } else if (cur_loc.includes('tumblr.com')) {
 	var pqsel = 'a[id="previous_page_link"]';
 	var nqsel = 'a[id="next_page_link"]';

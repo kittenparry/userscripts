@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.9.2
+// @version      1.10
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -17,10 +17,12 @@
  * reddit.com
  * steamcommunity.com/workshop/
  * steamgifts.com
+ * trakt.tv
  * tumblr.com
  * 
  * NSFW:
  * 8muses.com
+ * camvault.xyz
  * camwhores.tv
  * chaturbate.com
  * coedcherry.com
@@ -45,6 +47,7 @@
  */
 
 /* CHANGELOG:
+ * 1.10:  +trakt.tv +camvault.xyz | trakt.tv only works in episode/season views
  * 1.9.2: additional functions to ease repetition & meituri/meitulu isn't special anymore
  * 1.9.1: ability to navigate to first/last pages on pornbay.org
  * 1.9:   +rec-tube.com
@@ -54,7 +57,7 @@
  * 1.6.1: +rarbgproxy.org as an alternative to rarbg.to
  * 1.6:   +chaturbate.com
  * 1.5:   +meituri.com +meitulu.com | they work the same way so a simple or will do
- * 1.4:   +javbus.com | also switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
+ * 1.4:   +javbus.com | switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
  * 1.3.7: +thothub.tv
  * 1.3.6: +nexusmods.com | a special case similar to camwhores.tv
  * 1.3.5: +yiff.party/activity | with some clunky mechanics
@@ -181,13 +184,23 @@ if (cur_loc.includes('metal-tracker.com')) {
 	try {
 		var nqsel = document.querySelector('i[class="fa fa-angle-right"]').parentNode.href;
 	} catch (e) {}
+} else if (cur_loc.includes('trakt.tv')) {
+	var pqsel = 'a[class="previous-item-link"]';
+	var nqsel = 'a[class="next-item-link"]';
 } else if (cur_loc.includes('tumblr.com')) {
 	var pqsel = 'a[id="previous_page_link"]';
 	var nqsel = 'a[id="next_page_link"]';
-	// nsfw below
+	/* * * * * * * *
+	 * * * * * * * *
+	 * NSFW BELOW  *
+	 * * * * * * * *
+	 * * * * * * * */
 } else if (cur_loc.includes('8muses.com')) {
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
+} else if (cur_loc.includes('camvault.xyz')) {
+	var pqsel = 'a[rel="prev"]';
+	var nqsel = 'a[rel="next"]';
 } else if (cur_loc.includes('camwhores.tv')) {
 	var nav_spcl = 'camwhores';
 	var pqsel = '';

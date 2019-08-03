@@ -14,10 +14,12 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * reddit.com
 * steamcommunity.com/workshop/
 * steamgifts.com
+* trakt.tv
 * tumblr.com
 
 ### NSFW
 * 8muses.com
+* camvault.xyz
 * camwhores.tv
 * chaturbate.com
 * coedcherry.com
