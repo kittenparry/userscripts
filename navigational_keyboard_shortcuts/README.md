@@ -12,6 +12,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * nyaa.si
 * rarbg.to || rarbgproxy.org
 * reddit.com
+* stargate.fandom.com
 * steamcommunity.com/workshop/
 * steamgifts.com
 * trakt.tv

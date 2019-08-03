@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.10
+// @version      1.11
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -15,6 +15,7 @@
  * nyaa.si
  * rarbg.to || rarbgproxy.org
  * reddit.com
+ * stargate.fandom.com
  * steamcommunity.com/workshop/
  * steamgifts.com
  * trakt.tv
@@ -47,6 +48,7 @@
  */
 
 /* CHANGELOG:
+ * 1.11:  +stargate.fandom.com | navigates the episodes (preceded by & followed by)
  * 1.10:  +trakt.tv +camvault.xyz | trakt.tv only works in episode/season views
  * 1.9.2: additional functions to ease repetition & meituri/meitulu isn't special anymore
  * 1.9.1: ability to navigate to first/last pages on pornbay.org
@@ -168,6 +170,14 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('reddit.com')) {
 	var pqsel = 'a[rel="nofollow prev"]';
 	var nqsel = 'a[rel="nofollow next"]';
+} else if (cur_loc.includes('stargate.fandom.com')) {
+	var nav_spcl = 'url';
+	try {
+		var pqsel = document.querySelector('div[data-source="preceded_by"]').lastElementChild.firstElementChild.href;
+	} catch (e) {}
+	try {
+		var nqsel = document.querySelector('div[data-source="followed_by"]').lastElementChild.firstElementChild.href;
+	} catch (e) {}
 } else if (cur_loc.includes('steamcommunity.com/workshop/')) {
 	var nav_spcl = 'url';
 	try {

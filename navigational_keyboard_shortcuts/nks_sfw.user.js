@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.3
+// @version      1.4
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -15,6 +15,7 @@
  * nyaa.si
  * rarbg.to || rarbgproxy.org
  * reddit.com
+ * stargate.fandom.com
  * steamcommunity.com/workshop/
  * steamgifts.com
  * trakt.tv
@@ -22,6 +23,7 @@
  */
 
 /* CHANGELOG:
+ * 1.4:       +stargate.fandom.com | navigates the episodes (preceded by & followed by)
  * 1.3:       +trakt.tv | only works in episode/season views | switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
  * 1.2.3:     +rarbgproxy.org as an alternative to rarbg.to
  * 1.2.2:     +nexusmods.com | assignment is in the function
@@ -88,6 +90,14 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('reddit.com')) {
 	var pqsel = 'a[rel="nofollow prev"]';
 	var nqsel = 'a[rel="nofollow next"]';
+} else if (cur_loc.includes('stargate.fandom.com')) {
+	var nav_spcl = 'url';
+	try {
+		var pqsel = document.querySelector('div[data-source="preceded_by"]').lastElementChild.firstElementChild.href;
+	} catch (e) {}
+	try {
+		var nqsel = document.querySelector('div[data-source="followed_by"]').lastElementChild.firstElementChild.href;
+	} catch (e) {}
 } else if (cur_loc.includes('steamcommunity.com/workshop/')) {
 	var nav_spcl = 'url';
 	try {
