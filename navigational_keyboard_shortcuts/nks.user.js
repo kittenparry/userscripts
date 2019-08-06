@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.11
+// @version      1.11.1
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -48,33 +48,34 @@
  */
 
 /* CHANGELOG:
- * 1.11:  +stargate.fandom.com | navigates the episodes (preceded by & followed by)
- * 1.10:  +trakt.tv +camvault.xyz | trakt.tv only works in episode/season views
- * 1.9.2: additional functions to ease repetition & meituri/meitulu isn't special anymore
- * 1.9.1: ability to navigate to first/last pages on pornbay.org
- * 1.9:   +rec-tube.com
- * 1.8:   +erome.com +recurbate.com +hanime.tv
- * 1.7.1: +nobodyhome.tv instead of nobodyhome.ga (domain change)
- * 1.7:   +planetsuzy.org
- * 1.6.1: +rarbgproxy.org as an alternative to rarbg.to
- * 1.6:   +chaturbate.com
- * 1.5:   +meituri.com +meitulu.com | they work the same way so a simple or will do
- * 1.4:   +javbus.com | switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
- * 1.3.7: +thothub.tv
- * 1.3.6: +nexusmods.com | a special case similar to camwhores.tv
- * 1.3.5: +yiff.party/activity | with some clunky mechanics
- * 1.3.4: +steamcommunity.com/workshop/
- * 1.3.3: +f95zone.to/latest/ | change the original link to .to as well
- * 1.3.2: +metal-tracker.com | btn case i wanted to use in camwhores.tv
- * 1.3.1: +shadbase.com
- * 1.3:   +camwhores.tv | element needs to be reassigned each time so it's in the function
- * 1.2.4: +8muses.com
- * 1.2.3: +nobodyhome.ga
- * 1.2.2: +hongfire.com
- * 1.2.1: prevent execution of code when not on these sites
- * 1.2:   +f95zone.com
- * 1.1:   +nyaa.si +coedcherry.com
- * 1.0:   initial
+ * 1.11.1: fix trakt.tv back keybind not working
+ * 1.11:   +stargate.fandom.com | navigates the episodes (preceded by & followed by)
+ * 1.10:   +trakt.tv +camvault.xyz | trakt.tv only works in episode/season views
+ * 1.9.2:  additional functions to ease repetition & meituri/meitulu isn't special anymore
+ * 1.9.1:  ability to navigate to first/last pages on pornbay.org
+ * 1.9:    +rec-tube.com
+ * 1.8:    +erome.com +recurbate.com +hanime.tv
+ * 1.7.1:  +nobodyhome.tv instead of nobodyhome.ga (domain change)
+ * 1.7:    +planetsuzy.org
+ * 1.6.1:  +rarbgproxy.org as an alternative to rarbg.to
+ * 1.6:    +chaturbate.com
+ * 1.5:    +meituri.com +meitulu.com | they work the same way so a simple or will do
+ * 1.4:    +javbus.com | switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
+ * 1.3.7:  +thothub.tv
+ * 1.3.6:  +nexusmods.com | a special case similar to camwhores.tv
+ * 1.3.5:  +yiff.party/activity | with some clunky mechanics
+ * 1.3.4:  +steamcommunity.com/workshop/
+ * 1.3.3:  +f95zone.to/latest/ | change the original link to .to as well
+ * 1.3.2:  +metal-tracker.com | btn case i wanted to use in camwhores.tv
+ * 1.3.1:  +shadbase.com
+ * 1.3:    +camwhores.tv | element needs to be reassigned each time so it's in the function
+ * 1.2.4:  +8muses.com
+ * 1.2.3:  +nobodyhome.ga
+ * 1.2.2:  +hongfire.com
+ * 1.2.1:  prevent execution of code when not on these sites
+ * 1.2:    +f95zone.com
+ * 1.1:    +nyaa.si +coedcherry.com
+ * 1.0:    initial
  */
 
 check_nav_key_press = (e, prev, next, special = '') => {
@@ -195,8 +196,8 @@ if (cur_loc.includes('metal-tracker.com')) {
 		var nqsel = document.querySelector('i[class="fa fa-angle-right"]').parentNode.href;
 	} catch (e) {}
 } else if (cur_loc.includes('trakt.tv')) {
-	var pqsel = 'a[class="previous-item-link"]';
-	var nqsel = 'a[class="next-item-link"]';
+	var pqsel = 'a[rel="prev"]';
+	var nqsel = 'a[rel="next"]';
 } else if (cur_loc.includes('tumblr.com')) {
 	var pqsel = 'a[id="previous_page_link"]';
 	var nqsel = 'a[id="next_page_link"]';

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.4
+// @version      1.4.1
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -23,6 +23,7 @@
  */
 
 /* CHANGELOG:
+ * 1.4.1:     fix trakt.tv back keybind not working
  * 1.4:       +stargate.fandom.com | navigates the episodes (preceded by & followed by)
  * 1.3:       +trakt.tv | only works in episode/season views | switch to semantic versioning so incrementing minor instead of patch part (https://semver.org/)
  * 1.2.3:     +rarbgproxy.org as an alternative to rarbg.to
@@ -115,8 +116,8 @@ if (cur_loc.includes('metal-tracker.com')) {
 		var nqsel = document.querySelector('i[class="fa fa-angle-right"]').parentNode.href;
 	} catch (e) {}
 } else if (cur_loc.includes('trakt.tv')) {
-	var pqsel = 'a[class="previous-item-link"]';
-	var nqsel = 'a[class="next-item-link"]';
+	var pqsel = 'a[rel="prev"]';
+	var nqsel = 'a[rel="next"]';
 } else if (cur_loc.includes('tumblr.com')) {
 	var pqsel = 'a[id="previous_page_link"]';
 	var nqsel = 'a[id="next_page_link"]';
