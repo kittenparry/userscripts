@@ -6,3 +6,4 @@
 - [x] erome.com
 - [x] trakt.tv
 - [x] camvault.xyz
+- [ ] camshowhub.to (and maybe its variants too)
