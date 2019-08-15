@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.11.1
+// @version      1.12
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -20,9 +20,10 @@
  * steamgifts.com
  * trakt.tv
  * tumblr.com
- * 
+ *
  * NSFW:
  * 8muses.com
+ * camshowhub.to
  * camvault.xyz
  * camwhores.tv
  * chaturbate.com
@@ -48,6 +49,7 @@
  */
 
 /* CHANGELOG:
+ * 1.12:   +camshowhub.to
  * 1.11.1: fix trakt.tv back keybind not working
  * 1.11:   +stargate.fandom.com | navigates the episodes (preceded by & followed by)
  * 1.10:   +trakt.tv +camvault.xyz | trakt.tv only works in episode/season views
@@ -209,6 +211,9 @@ if (cur_loc.includes('metal-tracker.com')) {
 } else if (cur_loc.includes('8muses.com')) {
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
+} else if (cur_loc.includes('camshowhub.to')) {
+	var pqsel = 'a[title="Previous page"]';
+	var nqsel = 'a[title="Next page"]';
 } else if (cur_loc.includes('camvault.xyz')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
