@@ -8,3 +8,4 @@
 - [x] camvault.xyz
 - [x] camshowhub.to (and maybe its variants too)
 - [ ] meiying.live
+- [ ] booru.org
