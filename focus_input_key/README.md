@@ -4,6 +4,7 @@
 
 ## URL List
 
+* *.booru.org
 * rarbg.to
 * reddit.com
 * twitch.tv
