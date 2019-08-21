@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.13
+// @version      1.13.1
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -50,6 +50,7 @@
  */
 
 /* CHANGELOG:
+ * 1.13.1: lack of special handling similar to focus_input_key script (fik.user.js)
  * 1.13:   +*.booru.org
  * 1.12:   +camshowhub.to
  * 1.11.1: fix trakt.tv back keybind not working
@@ -82,7 +83,7 @@
  * 1.0:    initial
  */
 
-check_nav_key_press = (e, prev, next, special = '') => {
+check_nav_key_press = (e, prev, next, special) => {
 	var type = e.target.getAttribute('type');
 	var tag = e.target.tagName.toLowerCase();
 	if (type != 'text' && tag != 'textarea' && type != 'search') {
@@ -335,10 +336,9 @@ if (cur_loc.includes('metal-tracker.com')) {
 
 if (pqsel != undefined || nqsel != undefined) {
 	try {
-		if (nav_spcl) {
-			window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel, nav_spcl), false);
-		} else {
-			window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel), false);
+		if (!nav_spcl) {
+			var nav_spcl = '';
 		}
+		window.addEventListener('keydown', (e) => check_nav_key_press(e, pqsel, nqsel, nav_spcl), false);
 	} catch (e) {}
 }
