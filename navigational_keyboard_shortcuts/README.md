@@ -20,6 +20,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 
 ### NSFW
 * 8muses.com
+* *.booru.org
 * camshowhub.to
 * camvault.xyz
 * camwhores.tv
