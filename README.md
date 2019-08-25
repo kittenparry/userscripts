@@ -7,7 +7,7 @@
 * [Instagram Image Viewer](instagram_image_viewer)
 	* View the full image with the click of a button (or <kbd>D</kbd> key press).
 * [Navigational Keyboard Shortcuts](navigational_keyboard_shortcuts)
-	* Navigate through websites using keyboard buttons <kbd>N</kbd>/<kbd>B</kbd> for next/previous pages.
+	* Navigate through websites using keyboard buttons <kbd>N</kbd> / <kbd>B</kbd> for next/previous pages.
 * [Twitch Fullscreen Shortcut](twitch_fullscreen_shortcut)
 	* Enter to and exit from fullscreen with <kbd>F</kbd> keyboard button.
 * [Twitch Stop Autoplay](twitch_stop_autoplay)
