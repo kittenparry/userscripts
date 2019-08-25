@@ -80,7 +80,8 @@
  * 1.2.1:  prevent execution of code when not on these sites
  * 1.2:    +f95zone.com
  * 1.1:    +nyaa.si +coedcherry.com
- * 1.0:    initial
+ * 1.0:    initial | rarbg.com reddit.com steamgifts.com tumblr.com
+ *           & hentai-foundry.com nhentai.net pornbay.org sinnercomics.com
  */
 
 check_nav_key_press = (e, prev, next, special) => {

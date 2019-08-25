@@ -32,7 +32,7 @@
  * 1.2.sfw:   metal-tracker.com | btn case switch
  * 1.1.1.sfw: prevent execution of code when not on these sites
  * 1.1:       +nyaa.si
- * 1.0:       initial
+ * 1.0:       initial | rarbg.com reddit.com steamgifts.com tumblr.com
  */
 
 check_nav_key_press = (e, prev, next, special = '') => {
