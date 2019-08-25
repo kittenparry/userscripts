@@ -1,5 +1,5 @@
 ### Userscript to get the viewed full image on Instagram
-Click the button to the right side of the screen or `d` keyboard shortcut.
+Click the button to the right side of the screen or <kbd>D</kbd> keyboard shortcut.
 
 [On Greasy Fork](https://greasyfork.org/en/scripts/377853-instagram-image-viewer).
 

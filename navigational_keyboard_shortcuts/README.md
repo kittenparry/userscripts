@@ -1,5 +1,5 @@
 ### Userscript for navigational keyboard shortcuts on the named sites
-`n` for next page, `b` for previous page.
+<kbd>N</kbd> for next page, <kbd>B</kbd> for previous page.
 
 [On Greasy Fork](https://greasyfork.org/en/scripts/377854-navigational-keyboard-shortcuts)!
 
