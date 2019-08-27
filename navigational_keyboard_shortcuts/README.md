@@ -7,6 +7,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 
 ## URL List
 
+* imgfrog.pw
 * metal-tracker.com
 * nexusmods.com
 * nyaa.si

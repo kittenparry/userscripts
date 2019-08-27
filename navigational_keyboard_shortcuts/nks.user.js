@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.13.1
+// @version      1.14
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -10,6 +10,7 @@
 // ==/UserScript==
 
 /* LIST:
+ * imgfrog.pw
  * metal-tracker.com
  * nexusmods.com
  * nyaa.si
@@ -50,6 +51,7 @@
  */
 
 /* CHANGELOG:
+ * 1.14:   +imgfrog.pw
  * 1.13.1: lack of special handling similar to focus_input_key script (fik.user.js)
  * 1.13:   +*.booru.org
  * 1.12:   +camshowhub.to
@@ -160,7 +162,10 @@ get_sel_href = (sel, idx) => {
 
 var cur_loc = window.location.href;
 
-if (cur_loc.includes('metal-tracker.com')) {
+if (cur_loc.includes('imgfrog.pw')) {
+	var pqsel = 'a[data-pagination="prev"]';
+	var nqsel = 'a[data-pagination="next"]';
+} else if (cur_loc.includes('metal-tracker.com')) {
 	var nav_spcl = 'btn';
 	var pqsel = 'li[class="previous"]';
 	var nqsel = 'li[class="next"]';
