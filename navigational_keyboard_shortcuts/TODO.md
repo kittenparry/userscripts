@@ -9,3 +9,4 @@
 - [x] camshowhub.to (and maybe its variants too)
 - [ ] meiying.live
 - [x] booru.org
+- [ ] mods.factorio.com
