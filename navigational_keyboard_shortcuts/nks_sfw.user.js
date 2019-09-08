@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.5
+// @version      1.6
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -12,6 +12,7 @@
 /* LIST:
  * imgfrog.pw
  * metal-tracker.com
+ * mods.factorio.com
  * nexusmods.com
  * nyaa.si
  * rarbg.to || rarbgproxy.org
@@ -24,6 +25,7 @@
  */
 
 /* CHANGELOG:
+ * 1.6:       +mods.factorio.com
  * 1.5:       +imgfrog.pw
  * 1.4.1:     fix trakt.tv back keybind not working
  * 1.4:       +stargate.fandom.com | navigates the episodes (preceded by & followed by)
@@ -65,6 +67,20 @@ check_nav_key_press = (e, prev, next, special = '') => {
 	}
 };
 
+// return the first result of a given tag with the text
+// eg. ('a', 'prev') returns the anchor with 'prev' innerHTML
+find_els_with_text = (tag, text) => {
+	var els = document.getElementsByTagName(tag);
+	var found = [];
+	for (var i = 0; i < els.length; i++) {
+		if (els[i].innerHTML == text) {
+			found.push(els[i]);
+		}
+	}
+
+	return found[0].href;
+};
+
 /* probably need a better way than simply .includes()
  * pqsel: previous query selector
  * nqsel: next query selector
@@ -83,6 +99,14 @@ if (cur_loc.includes('imgfrog.pw')) {
 	var nav_spcl = 'btn';
 	var pqsel = 'li[class="previous"]';
 	var nqsel = 'li[class="next"]';
+} else if (cur_loc.includes('mods.factorio.com')) {
+	var nav_spcl = 'url';
+	try {
+		var pqsel = find_els_with_text('a', '« Previous');
+	} catch (e) {}
+	try {
+		var nqsel = find_els_with_text('a', 'Next »');
+	} catch (e) {}
 } else if (cur_loc.includes('nexusmods.com')) {
 	var nav_spcl = 'nexusmods';
 	var pqsel = '';

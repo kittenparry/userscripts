@@ -9,6 +9,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 
 * imgfrog.pw
 * metal-tracker.com
+* mods.factorio.com
 * nexusmods.com
 * nyaa.si
 * rarbg.to || rarbgproxy.org

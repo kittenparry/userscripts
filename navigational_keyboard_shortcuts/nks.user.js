@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.14
+// @version      1.15
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -12,6 +12,7 @@
 /* LIST:
  * imgfrog.pw
  * metal-tracker.com
+ * mods.factorio.com
  * nexusmods.com
  * nyaa.si
  * rarbg.to || rarbgproxy.org
@@ -51,6 +52,7 @@
  */
 
 /* CHANGELOG:
+ * 1.15:   +mods.factorio.com
  * 1.14:   +imgfrog.pw
  * 1.13.1: lack of special handling similar to focus_input_key script (fik.user.js)
  * 1.13:   +*.booru.org
@@ -169,6 +171,14 @@ if (cur_loc.includes('imgfrog.pw')) {
 	var nav_spcl = 'btn';
 	var pqsel = 'li[class="previous"]';
 	var nqsel = 'li[class="next"]';
+} else if (cur_loc.includes('mods.factorio.com')) {
+	var nav_spcl = 'url';
+	try {
+		var pqsel = find_els_with_text('a', '« Previous');
+	} catch (e) {}
+	try {
+		var nqsel = find_els_with_text('a', 'Next »');
+	} catch (e) {}
 } else if (cur_loc.includes('nexusmods.com')) {
 	var nav_spcl = 'nexusmods';
 	var pqsel = '';

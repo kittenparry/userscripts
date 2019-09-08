@@ -9,7 +9,7 @@
 - [x] camshowhub.to (and maybe its variants too)
 - [ ] meiying.live
 - [x] booru.org
-- [ ] mods.factorio.com
+- [x] mods.factorio.com
 - [ ] penny-arcade.com/comic
 - [ ] totempole666.com
 - [ ] ma3comic.com
