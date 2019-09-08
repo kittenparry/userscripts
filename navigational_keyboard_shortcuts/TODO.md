@@ -10,3 +10,4 @@
 - [ ] meiying.live
 - [x] booru.org
 - [ ] mods.factorio.com
+- [ ] penny-arcade.com/comic
