@@ -14,3 +14,4 @@
 - [ ] totempole666.com
 - [ ] ma3comic.com
 - [ ] nerfnow.com
+- [ ] xkcd.com
