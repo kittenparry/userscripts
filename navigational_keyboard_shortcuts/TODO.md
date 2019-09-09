@@ -15,4 +15,4 @@
 - [ ] ma3comic.com
 - [ ] nerfnow.com
 - [ ] xkcd.com
-- [ ] kitty-kats.net (remove the old complicated script)
+- [x] kitty-kats.net

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.15
+// @version      1.16
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -37,6 +37,7 @@
  * hentai-foundry.com
  * hongfire.com
  * javbus.com
+ * kitty-kats.net
  * meitulu.com
  * meituri.com
  * nhentai.net
@@ -52,6 +53,7 @@
  */
 
 /* CHANGELOG:
+ * 1.16:   +kitty-kats.net
  * 1.15:   +mods.factorio.com
  * 1.14:   +imgfrog.pw
  * 1.13.1: lack of special handling similar to focus_input_key script (fik.user.js)
@@ -279,6 +281,9 @@ if (cur_loc.includes('imgfrog.pw')) {
 } else if (cur_loc.includes('javbus.com')) {
 	var pqsel = 'a[id="pre"]';
 	var nqsel = 'a[id="next"]';
+} else if (cur_loc.includes('kitty-kats.net')) {
+	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
+	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
 } else if (cur_loc.includes('meituri.com') || cur_loc.includes('meitulu.com')) {
 	var nav_spcl = 'url';
 	try {
