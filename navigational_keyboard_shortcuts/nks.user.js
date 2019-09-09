@@ -22,7 +22,7 @@
  * steamgifts.com
  * trakt.tv
  * tumblr.com
- *
+
  * NSFW:
  * 8muses.com
  * *.booru.org
