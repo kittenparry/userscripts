@@ -17,3 +17,4 @@
 - [ ] xkcd.com
 - [x] kitty-kats.net
 - [ ] google.com
+- [ ] yiff.party/patreon/
