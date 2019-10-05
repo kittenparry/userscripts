@@ -19,3 +19,4 @@
 - [ ] google.com
 - [ ] yiff.party/patreon/
 - [ ] e-hentai.org
+- [ ] loverslab.com
