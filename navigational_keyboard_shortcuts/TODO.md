@@ -20,3 +20,4 @@
 - [ ] yiff.party/patreon/
 - [ ] e-hentai.org
 - [ ] loverslab.com
+- [ ] luscious.net
