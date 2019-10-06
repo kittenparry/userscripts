@@ -22,3 +22,5 @@
 - [ ] loverslab.com
 - [ ] luscious.net
 - [x] archived.moe
+- [ ] sfmlab.com
+- [ ] smutba.se
