@@ -8,6 +8,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 ## URL List
 
 * archived.moe
+* google.com
 * imgfrog.pw
 * metal-tracker.com
 * mods.factorio.com

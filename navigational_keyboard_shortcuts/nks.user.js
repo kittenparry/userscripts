@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.17
+// @version      1.18
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -11,6 +11,7 @@
 
 /* LIST:
  * archived.moe
+ * google.com
  * imgfrog.pw
  * metal-tracker.com
  * mods.factorio.com
@@ -54,6 +55,7 @@
  */
 
 /* CHANGELOG:
+ * 1.18:   +google.com
  * 1.17:   +archived.moe
  * 1.16:   +kitty-kats.net
  * 1.15:   +mods.factorio.com
@@ -172,6 +174,21 @@ if (cur_loc.includes('archived.moe')) {
 	var nav_spcl = 'url';
 	var pqsel = document.querySelector('li[class="prev"]').firstElementChild.href;
 	var nqsel = document.querySelector('li[class="next"]').firstElementChild.href;
+} else if (cur_loc.includes('google.com')) {
+	var nav_spcl = 'url';
+	try {
+		var nqsel = get_sel_href('.pn', 1);
+	} catch (e) {
+		// if the first page
+		var nqsel = get_sel_href('.pn', 0);
+	}
+	try {
+		var pqsel = get_sel_href('.pn', 0);
+		// if the first page
+		if (nqsel == pqsel) {
+			pqsel = null;
+		}
+	} catch (e) {}
 } else if (cur_loc.includes('imgfrog.pw')) {
 	var pqsel = 'a[data-pagination="prev"]';
 	var nqsel = 'a[data-pagination="next"]';

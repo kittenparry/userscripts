@@ -16,7 +16,7 @@
 - [ ] nerfnow.com
 - [ ] xkcd.com
 - [x] kitty-kats.net
-- [ ] google.com
+- [x] google.com
 - [ ] yiff.party/patreon/
 - [ ] e-hentai.org
 - [ ] loverslab.com
