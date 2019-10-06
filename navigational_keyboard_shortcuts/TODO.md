@@ -21,4 +21,4 @@
 - [ ] e-hentai.org
 - [ ] loverslab.com
 - [ ] luscious.net
-- [ ] archived.moe
+- [x] archived.moe
