@@ -24,3 +24,4 @@
 - [x] archived.moe
 - [ ] sfmlab.com
 - [ ] smutba.se
+- [ ] assetstore.unity.com
