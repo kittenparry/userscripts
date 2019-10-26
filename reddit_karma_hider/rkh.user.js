@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         reddit Karma Hider
 // @namespace    https://github.com/kittenparry/
-// @version      1.0
+// @version      1.1
 // @description  Hide karma of posts & comments.
 // @author       kittenparry
 // @include      *://*.reddit.com/*
@@ -11,8 +11,13 @@
 // @license      GPL-3.0-or-later
 // ==/UserScript==
 
+/* CHANGELOG:
+ * 1.1:   also hide it on post details right-hand side
+ * 1.0:   initial | hide karma on comments and posts
+ */
+
 (() => {
-	let css = '.midcol .score { visibility: hidden; } .tagline .score { display: none; }';
+	let css = '.midcol .score, .linkinfo .score { visibility: hidden; } .tagline .score { display: none; }';
 	if (typeof GM_addStyle != "undefined") {
 		GM_addStyle(css);
 	} else if (typeof PRO_addStyle != "undefined") {
