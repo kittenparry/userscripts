@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.18
+// @version      1.19
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -46,6 +46,7 @@
  * nobodyhome.tv
  * planetsuzy.org
  * pornbay.org
+ * pornhub.com
  * recurbate.com
  * rec-tube.com
  * shadbase.com
@@ -55,6 +56,7 @@
  */
 
 /* CHANGELOG:
+ * 1.19:   +pornhub.com
  * 1.18:   +google.com
  * 1.17:   +archived.moe
  * 1.16:   +kitty-kats.net
@@ -339,6 +341,14 @@ if (cur_loc.includes('archived.moe')) {
 		} catch (e) {
 			var nqsel = get_query_href('a[class="pager pager_last"]');
 		}
+	} catch (e) {}
+} else if (cur_loc.includes('pornhub.com')) {
+	var nav_spcl = 'url';
+	try {
+		var pqsel = document.querySelector('li[class="page_previous alpha"]').firstElementChild.href;
+	} catch (e) {}
+	try {
+		var nqsel = document.querySelector('li[class="page_next omega"]').firstElementChild.href;
 	} catch (e) {}
 } else if (cur_loc.includes('recurbate.com')) {
 	var pqsel = 'a[aria-label="Previous"]';

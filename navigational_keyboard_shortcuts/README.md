@@ -43,6 +43,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * nobodyhome.tv
 * planetsuzy.org
 * pornbay.org
+* pornhub.com
 * recurbate.com
 * rec-tube.com
 * shadbase.com
