@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.20
+// @version      1.20.1
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -57,6 +57,7 @@
  */
 
 /* CHANGELOG:
+ * 1.20.1: fix archived.moe first (& likely last) page navigation
  * 1.20:   +loverslab.com | could probably be better with a special of its own similar to nexusmods
  * 1.19:   +pornhub.com
  * 1.18:   +google.com
@@ -176,8 +177,12 @@ var cur_loc = window.location.href;
 
 if (cur_loc.includes('archived.moe')) {
 	var nav_spcl = 'url';
-	var pqsel = document.querySelector('li[class="prev"]').firstElementChild.href;
-	var nqsel = document.querySelector('li[class="next"]').firstElementChild.href;
+	try {
+		var pqsel = document.querySelector('li[class="prev"]').firstElementChild.href;
+	} catch (e) {}
+	try {
+		var nqsel = document.querySelector('li[class="next"]').firstElementChild.href;
+	} catch (e) {}
 } else if (cur_loc.includes('google.com')) {
 	var nav_spcl = 'url';
 	try {
