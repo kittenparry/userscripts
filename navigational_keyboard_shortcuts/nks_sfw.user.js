@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.8
+// @version      1.8.1
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -27,6 +27,7 @@
  */
 
 /* CHANGELOG:
+ * 1.8.1:     fix archived.moe first (& likely last) page navigation
  * 1.8:       +google.com | carry over the required extra functionality from nks.user.js
  * 1.7:       +archived.moe
  * 1.6:       +mods.factorio.com
@@ -103,8 +104,12 @@ var cur_loc = window.location.href;
 
 if (cur_loc.includes('archived.moe')) {
 	var nav_spcl = 'url';
-	var pqsel = document.querySelector('li[class="prev"]').firstElementChild.href;
-	var nqsel = document.querySelector('li[class="next"]').firstElementChild.href;
+	try {
+		var pqsel = document.querySelector('li[class="prev"]').firstElementChild.href;
+	} catch (e) {}
+	try {
+		var nqsel = document.querySelector('li[class="next"]').firstElementChild.href;
+	} catch (e) {}
 } else if (cur_loc.includes('google.com')) {
 	var nav_spcl = 'url';
 	try {
