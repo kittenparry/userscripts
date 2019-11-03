@@ -37,6 +37,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * hongfire.com
 * javbus.com
 * kitty-kats.net
+* loverslab.com
 * meitulu.com
 * meituri.com
 * nhentai.net

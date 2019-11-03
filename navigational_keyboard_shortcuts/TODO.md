@@ -19,7 +19,7 @@
 - [x] google.com
 - [ ] yiff.party/patreon/
 - [ ] e-hentai.org
-- [ ] loverslab.com
+- [x] loverslab.com
 - [ ] luscious.net
 - [x] archived.moe
 - [ ] sfmlab.com

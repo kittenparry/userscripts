@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.19
+// @version      1.20
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -40,6 +40,7 @@
  * hongfire.com
  * javbus.com
  * kitty-kats.net
+ * loverslab.com
  * meitulu.com
  * meituri.com
  * nhentai.net
@@ -56,6 +57,7 @@
  */
 
 /* CHANGELOG:
+ * 1.20:   +loverslab.com | could probably be better with a special of its own similar to nexusmods
  * 1.19:   +pornhub.com
  * 1.18:   +google.com
  * 1.17:   +archived.moe
@@ -309,6 +311,9 @@ if (cur_loc.includes('archived.moe')) {
 } else if (cur_loc.includes('kitty-kats.net')) {
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
+} else if (cur_loc.includes('loverslab.com')) {
+	var pqsel = 'a[rel="prev"]';
+	var nqsel = 'a[rel="next"]';
 } else if (cur_loc.includes('meituri.com') || cur_loc.includes('meitulu.com')) {
 	var nav_spcl = 'url';
 	try {
