@@ -6,6 +6,8 @@
 	* View the full images by clicking a button under the image.
 * [Focus Input Key](focus_input_key)
 	* Focus to search or a certain text input with <kbd>/</kbd> key similar to YouTube.
+* [Gfycat HD On](gfycat_hd_on)
+	* Userscript to switch to HD on Gfycat after page load™.
 * [Instagram Image Viewer](instagram_image_viewer)
 	* View the full image with the click of a button (or <kbd>D</kbd> key press).
 * [Navigational Keyboard Shortcuts](navigational_keyboard_shortcuts)
