@@ -25,3 +25,4 @@
 - [ ] sfmlab.com
 - [ ] smutba.se
 - [ ] assetstore.unity.com
+- [ ] vk.com/photo
