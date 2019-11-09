@@ -2,6 +2,8 @@
 
 [My Greasy Fork page](https://greasyfork.org/en/users/247902-kittenparry).
 
+* [Erome Image Viewer](erome_image_viewer)
+	* View the full images by clicking a button under the image.
 * [Focus Input Key](focus_input_key)
 	* Focus to search or a certain text input with <kbd>/</kbd> key similar to YouTube.
 * [Instagram Image Viewer](instagram_image_viewer)
