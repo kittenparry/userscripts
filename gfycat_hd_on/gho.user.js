@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Gfycat Turn HD On
+// @name         Gfycat HD On
 // @namespace    https://github.com/kittenparry/
 // @version      0.1
 // @description  Switch to HD version on page load™.
