@@ -50,4 +50,5 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * shadbase.com
 * sinnercomics.com
 * thothub.tv
+* totempole666.com
 * yiff.party/activity

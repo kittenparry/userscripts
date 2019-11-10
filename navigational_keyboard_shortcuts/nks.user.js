@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.20.1
+// @version      1.21
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -53,10 +53,12 @@
  * shadbase.com
  * sinnercomics.com
  * thothub.tv
+ * totempole666.com
  * yiff.party/activity
  */
 
 /* CHANGELOG:
+ * 1.21:   +totempole666.com
  * 1.20.1: fix archived.moe first (& likely last) page navigation
  * 1.20:   +loverslab.com | could probably be better with a special of its own similar to nexusmods
  * 1.19:   +pornhub.com
@@ -388,6 +390,9 @@ if (cur_loc.includes('archived.moe')) {
 } else if (cur_loc.includes('thothub.tv')) {
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
+} else if (cur_loc.includes('totempole666.com')) {
+	var pqsel = 'a[class="navi comic-nav-previous navi-prev"]';
+	var nqsel = 'a[class="navi comic-nav-next navi-next"]';
 } else if (cur_loc.includes('yiff.party/activity')) {
 	var nav_spcl = 'url';
 	try {

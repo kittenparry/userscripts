@@ -11,7 +11,7 @@
 - [x] booru.org
 - [x] mods.factorio.com
 - [ ] penny-arcade.com/comic
-- [ ] totempole666.com
+- [x] totempole666.com
 - [ ] ma3comic.com
 - [ ] nerfnow.com
 - [ ] xkcd.com
