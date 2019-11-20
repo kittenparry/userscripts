@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.21
+// @version      1.22
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -26,6 +26,7 @@
  * tumblr.com
 
  * NSFW:
+ * 420chan.org
  * 8muses.com
  * *.booru.org
  * camshowhub.to
@@ -58,6 +59,7 @@
  */
 
 /* CHANGELOG:
+ * 1.22:   +420chan.org
  * 1.21:   +totempole666.com
  * 1.20.1: fix archived.moe first (& likely last) page navigation
  * 1.20:   +loverslab.com | could probably be better with a special of its own similar to nexusmods
@@ -263,6 +265,14 @@ if (cur_loc.includes('archived.moe')) {
 	 * NSFW BELOW  *
 	 * * * * * * * *
 	 * * * * * * * */
+} else if (cur_loc.includes('420chan.org')) {
+	var nav_spcl = 'url';
+	try {
+		var pqsel = find_els_with_text('a', '« Previous');
+	} catch (e) {}
+	try {
+		var nqsel = find_els_with_text('a', 'Next »');
+	} catch (e) {}
 } else if (cur_loc.includes('8muses.com')) {
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';

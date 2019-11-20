@@ -23,6 +23,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * tumblr.com
 
 ### NSFW
+* 420chan.org
 * 8muses.com
 * *.booru.org
 * camshowhub.to
