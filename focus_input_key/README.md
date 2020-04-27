@@ -5,6 +5,7 @@
 ## URL List
 
 * *.booru.org
+* metal-tracker.com
 * rarbg.to
 * reddit.com
 * twitch.tv
