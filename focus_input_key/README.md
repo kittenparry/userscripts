@@ -5,7 +5,9 @@
 ## URL List
 
 * *.booru.org
+* instagram.com/direct/
 * metal-tracker.com
+* nyaa.si
 * rarbg.to
 * reddit.com
 * twitch.tv
