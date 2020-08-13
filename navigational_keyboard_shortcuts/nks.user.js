@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.22
+// @version      1.23
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -36,6 +36,8 @@
  * coedcherry.com
  * erome.com
  * f95zone.com
+ * forum.sexy-egirls.com
+ * forums.sexy-youtubers.com
  * hanime.tv
  * hentai-foundry.com
  * hongfire.com
@@ -59,6 +61,7 @@
  */
 
 /* CHANGELOG:
+ * 1.23:   +forums.sexy-youtubers.com +forum.sexy-egirls.com
  * 1.22:   +420chan.org
  * 1.21:   +totempole666.com
  * 1.20.1: fix archived.moe first (& likely last) page navigation
@@ -397,7 +400,7 @@ if (cur_loc.includes('archived.moe')) {
 } else if (cur_loc.includes('sinnercomics.com')) {
 	var pqsel = 'a[class="comic-nav-base comic-nav-previous"]';
 	var nqsel = 'a[class="comic-nav-base comic-nav-next"]';
-} else if (cur_loc.includes('thothub.tv')) {
+} else if (cur_loc.includes('thothub.tv') || cur_loc.includes('forums.sexy-youtubers.com') || cur_loc.includes('forum.sexy-egirls.com')) {
 	var pqsel = 'a[class="pageNav-jump pageNav-jump--prev"]';
 	var nqsel = 'a[class="pageNav-jump pageNav-jump--next"]';
 } else if (cur_loc.includes('totempole666.com')) {

@@ -33,6 +33,8 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * coedcherry.com
 * erome.com
 * f95zone.com
+* forum.sexy-egirls.com
+* forums.sexy-youtubers.com
 * hanime.tv
 * hentai-foundry.com
 * hongfire.com
