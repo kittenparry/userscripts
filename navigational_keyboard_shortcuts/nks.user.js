@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.23
+// @version      1.24
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -17,13 +17,14 @@
  * mods.factorio.com
  * nexusmods.com
  * nyaa.si
- * rarbg.to || rarbgproxy.org
+ * rarbg.to || rarbgproxy.org || rarbg2020.org
  * reddit.com
  * stargate.fandom.com
  * steamcommunity.com/workshop/
  * steamgifts.com
  * trakt.tv
  * tumblr.com
+ * xkcd.com
 
  * NSFW:
  * 420chan.org
@@ -48,6 +49,7 @@
  * meituri.com
  * nhentai.net
  * nobodyhome.tv
+ * pixietrixcomix.com
  * planetsuzy.org
  * pornbay.org
  * pornhub.com
@@ -61,6 +63,7 @@
  */
 
 /* CHANGELOG:
+ * 1.24:   +rarbg2020.org (rarbg.to alt) +xkcd.com +pixietrixcomix.com
  * 1.23:   +forums.sexy-youtubers.com +forum.sexy-egirls.com
  * 1.22:   +420chan.org
  * 1.21:   +totempole666.com
@@ -164,12 +167,12 @@ get_query_href = (sel) => {
 // click the idxth element of given selector
 sel_and_click = (sel, idx) => {
 	document.querySelectorAll(sel)[idx].click();
-}
+};
 
 // return the href of given selector at idxth
 get_sel_href = (sel, idx) => {
 	return document.querySelectorAll(sel)[idx].href;
-}
+};
 
 /* probably need a better way than simply .includes()
  * pqsel: previous query selector
@@ -227,7 +230,7 @@ if (cur_loc.includes('archived.moe')) {
 } else if (cur_loc.includes('nyaa.si')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
-} else if (cur_loc.includes('rarbg.to') || cur_loc.includes('rarbgproxy.org')) {
+} else if (cur_loc.includes('rarbg.to') || cur_loc.includes('rarbgproxy.org') || (cur_loc.includes('rarbg2020.org'))) {
 	var pqsel = 'a[title="previous page"]';
 	var nqsel = 'a[title="next page"]'
 } else if (cur_loc.includes('reddit.com')) {
@@ -263,6 +266,9 @@ if (cur_loc.includes('archived.moe')) {
 } else if (cur_loc.includes('tumblr.com')) {
 	var pqsel = 'a[id="previous_page_link"]';
 	var nqsel = 'a[id="next_page_link"]';
+} else if (cur_loc.includes('xkcd.com')) {
+	var pqsel = 'a[rel="prev"]';
+	var nqsel = 'a[rel="next"]';
 	/* * * * * * * *
 	 * * * * * * * *
 	 * NSFW BELOW  *
@@ -348,6 +354,9 @@ if (cur_loc.includes('archived.moe')) {
 } else if (cur_loc.includes('nobodyhome.tv')) {
 	var pqsel = 'a[class="pagination_previous"]';
 	var nqsel = 'a[class="pagination_next"]';
+} else if (cur_loc.includes('pixietrixcomix.com')) {
+	var pqsel = 'a[rel="prev"]';
+	var nqsel = 'a[rel="next"]';
 } else if (cur_loc.includes('planetsuzy.org')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';

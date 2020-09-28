@@ -14,13 +14,14 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * mods.factorio.com
 * nexusmods.com
 * nyaa.si
-* rarbg.to || rarbgproxy.org
+* rarbg.to || rarbgproxy.org || rarbg2020.org
 * reddit.com
 * stargate.fandom.com
 * steamcommunity.com/workshop/
 * steamgifts.com
 * trakt.tv
 * tumblr.com
+* xkcd.com
 
 ### NSFW
 * 420chan.org
@@ -45,6 +46,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * meituri.com
 * nhentai.net
 * nobodyhome.tv
+* pixietrixcomix.com
 * planetsuzy.org
 * pornbay.org
 * pornhub.com

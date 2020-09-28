@@ -12,9 +12,9 @@
 - [x] mods.factorio.com
 - [ ] penny-arcade.com/comic
 - [x] totempole666.com
-- [ ] ma3comic.com
+- [x] ~~ma3comic.com~~ pixietrixcomix.com
 - [ ] nerfnow.com
-- [ ] xkcd.com
+- [x] xkcd.com
 - [x] kitty-kats.net
 - [x] google.com
 - [ ] yiff.party/patreon/

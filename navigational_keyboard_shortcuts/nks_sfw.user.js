@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts SFW
 // @namespace    https://github.com/kittenparry/
-// @version      1.8.1
+// @version      1.9
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -17,16 +17,18 @@
  * mods.factorio.com
  * nexusmods.com
  * nyaa.si
- * rarbg.to || rarbgproxy.org
+ * rarbg.to || rarbgproxy.org || rarbg2020.org
  * reddit.com
  * stargate.fandom.com
  * steamcommunity.com/workshop/
  * steamgifts.com
  * trakt.tv
  * tumblr.com
+ * xkcd.com
  */
 
 /* CHANGELOG:
+ * 1.9:       +rarbg2020.org (rarbg.to alt) +xkcd.com
  * 1.8.1:     fix archived.moe first (& likely last) page navigation
  * 1.8:       +google.com | carry over the required extra functionality from nks.user.js
  * 1.7:       +archived.moe
@@ -147,7 +149,7 @@ if (cur_loc.includes('archived.moe')) {
 } else if (cur_loc.includes('nyaa.si')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
-} else if (cur_loc.includes('rarbg.to') || cur_loc.includes('rarbgproxy.org')) {
+} else if (cur_loc.includes('rarbg.to') || cur_loc.includes('rarbgproxy.org') || (cur_loc.includes('rarbg2020.org'))) {
 	var pqsel = 'a[title="previous page"]';
 	var nqsel = 'a[title="next page"]'
 } else if (cur_loc.includes('reddit.com')) {
@@ -183,6 +185,9 @@ if (cur_loc.includes('archived.moe')) {
 } else if (cur_loc.includes('tumblr.com')) {
 	var pqsel = 'a[id="previous_page_link"]';
 	var nqsel = 'a[id="next_page_link"]';
+} else if (cur_loc.includes('xkcd.com')) {
+	var pqsel = 'a[rel="prev"]';
+	var nqsel = 'a[rel="next"]';
 }
 
 if (pqsel != undefined || nqsel != undefined) {
