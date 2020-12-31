@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Focus Input Keybind
 // @namespace    https://github.com/kittenparry/
-// @version      1.4
+// @version      1.4.1
 // @description  Focus to search or a certain text input with forward slash (/) key similar to YouTube.
 // @author       kittenparry
 // @match        *://*/*
@@ -14,13 +14,14 @@
  * instagram.com/direct/
  * metal-tracker.com
  * nyaa.si
- * rarbg.to
+ * rarbg.to || rarbg2020.org
  * reddit.com
  * twitch.tv
  * wiktionary.org
  */
 
 /* CHANGELOG:
+ * 1.4.1: +rarbg2020.org (rarbg.to alternative)
  * 1.4: +nyaa.si +instagram.com/direct/
  * 1.3: +metal-tracker.com
  * 1.2: +*.booru.org
@@ -63,7 +64,7 @@ if (current_url.includes('.booru.org')) {
 } else if (current_url.includes('nyaa.si')) {
 	var inid = 'input[class="form-control search-bar"]';
 	var inspcl = 'selector';
-} else if (current_url.includes('rarbg.to')) {
+} else if (current_url.includes('rarbg.to') || current_url.includes('rarbg2020.org')) {
 	var inid = 'searchinput';
 } else if (current_url.includes('reddit.com')) {
 	var inid = 'search';
