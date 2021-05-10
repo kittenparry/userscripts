@@ -18,5 +18,7 @@
 	* Enter to and exit from fullscreen with <kbd>F</kbd> keyboard button.
 * [Twitch Stop Autoplay](twitch_stop_autoplay)
 	* Tries to pause the stream on Twitch home page.
+* [Twitch Status+](twitch_status_plus)
+	* Switch to online and turn on activity after page load™.
 * [VK Image View Hotkey](vk_image_view_hotkey)
 	* View the full image by pressing <kbd>D</kbd>.
