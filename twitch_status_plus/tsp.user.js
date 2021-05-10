@@ -18,7 +18,7 @@ setTimeout(() => {
 		let activity_toggle = document.querySelectorAll('input[class="ScToggleInput-sc-796zbf-1 doVmsZ tw-toggle__input"]')[1];
 		if (!activity_toggle.checked) {
 			activity_toggle.click();
-		} else {}
+		}
 		avatar.click();
 	} else {
 		avatar.click();
