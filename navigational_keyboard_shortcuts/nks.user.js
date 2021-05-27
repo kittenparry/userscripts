@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Navigational Keyboard Shortcuts
 // @namespace    https://github.com/kittenparry/
-// @version      1.24
+// @version      1.25
 // @description  Navigate through websites using keyboard buttons N/B for next/previous pages.
 // @author       kittenparry
 // @match        *://*/*
@@ -17,6 +17,7 @@
  * mods.factorio.com
  * nexusmods.com
  * nyaa.si
+ * opengameart.org
  * rarbg.to || rarbgproxy.org || rarbg2020.org
  * reddit.com
  * stargate.fandom.com
@@ -63,6 +64,7 @@
  */
 
 /* CHANGELOG:
+ * 1.25:   +opengameart.org
  * 1.24:   +rarbg2020.org (rarbg.to alt) +xkcd.com +pixietrixcomix.com
  * 1.23:   +forums.sexy-youtubers.com +forum.sexy-egirls.com
  * 1.22:   +420chan.org
@@ -230,6 +232,9 @@ if (cur_loc.includes('archived.moe')) {
 } else if (cur_loc.includes('nyaa.si')) {
 	var pqsel = 'a[rel="prev"]';
 	var nqsel = 'a[rel="next"]';
+} else if (cur_loc.includes('opengameart.org')) {
+	var pqsel = 'a[title="Go to previous page"]';
+	var nqsel = 'a[title="Go to next page"]';
 } else if (cur_loc.includes('rarbg.to') || cur_loc.includes('rarbgproxy.org') || (cur_loc.includes('rarbg2020.org'))) {
 	var pqsel = 'a[title="previous page"]';
 	var nqsel = 'a[title="next page"]'

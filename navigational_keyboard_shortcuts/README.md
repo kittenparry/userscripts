@@ -14,6 +14,7 @@ SFW version [on Greasy Fork](https://greasyfork.org/en/scripts/377855-navigation
 * mods.factorio.com
 * nexusmods.com
 * nyaa.si
+* opengameart.org
 * rarbg.to || rarbgproxy.org || rarbg2020.org
 * reddit.com
 * stargate.fandom.com
